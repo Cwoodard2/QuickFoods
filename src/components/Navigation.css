@@ -1,0 +1,9 @@
+.navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 10vw;
+    height: 100vh;
+    background-color: rgb(80, 80, 80);
+}
