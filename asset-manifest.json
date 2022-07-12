@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/QuickFoods/static/css/main.073c9b0a.css",
+    "main.js": "/QuickFoods/static/js/main.94b63000.js",
+    "static/js/787.29eca7e8.chunk.js": "/QuickFoods/static/js/787.29eca7e8.chunk.js",
+    "static/media/logo.svg": "/QuickFoods/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/QuickFoods/index.html",
+    "main.073c9b0a.css.map": "/QuickFoods/static/css/main.073c9b0a.css.map",
+    "main.94b63000.js.map": "/QuickFoods/static/js/main.94b63000.js.map",
+    "787.29eca7e8.chunk.js.map": "/QuickFoods/static/js/787.29eca7e8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.94b63000.js"
+  ]
+}
