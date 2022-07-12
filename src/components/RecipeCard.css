@@ -1,0 +1,14 @@
+.recipeCardMain {
+    width: 20vw;
+    height: 22vw;
+    border-radius: 6px;
+    border-color: black;
+    border: solid;
+    background-color: cadetblue;
+}
+
+.recipeCardContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
