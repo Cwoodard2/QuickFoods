@@ -3,6 +3,9 @@ import './App.css';
 import React from 'react';
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Homepage from './pages/homepage';
+import RecipeBook from './pages/recipebook';
+import GroceryList from './pages/grocerylist';
+import Calender from './pages/calender';
 
 function App() {
   return (
@@ -25,6 +28,9 @@ function App() {
     <HashRouter>
         <Routes>
           <Route path="/" element={<Homepage/>}/>
+          <Route path="/recipebook" element={<RecipeBook/>}/>
+          <Route path="/grocerylist" element={<GroceryList/>}/>
+          <Route path="/calender" element={<Calender/>}/>
         </Routes>
       </HashRouter>
   );
