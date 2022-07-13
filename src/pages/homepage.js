@@ -10,15 +10,15 @@ export default function Homepage() {
             <Navigation />
             <div className="homepageMain">
                 <h1>Good Evening, Olivia</h1>
-                <div className="recipeCards row">
-                    <div>
+                <div className="recipeCards">
+                    <div className="column">
                         <h2>Recipe Suggestions</h2>
                         <div className="recipeSuggestions row">
                             <RecipeCard />
                             <RecipeCard />
                         </div>
                     </div>
-                    <div>
+                    <div className="column">
                         <h2>Recipe Suggestions</h2>
                         <div className="recipeSuggestions row">
                             <RecipeCard />
