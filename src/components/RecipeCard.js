@@ -1,19 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
+import Modal from "./Modal";
 import "./RecipeCard.css";
 
 export default function RecipeCard(props) {
+    const [showModal, setView] = useState(false);
 
     return(
         <div className="recipeCardMain">
+            <Modal title={props.recipe} content={props.content} onClose={() => setView(false)} show={showModal}/>
             <h1>Space For Picture!</h1>
             <div className="recipeCardContent">
-                <h3>Recipe Name</h3>
+                <h3>{props.recipe}</h3>
                 <div>
-                    <p>0 min Prep</p>
-                    <p>10 min Cook</p>
+                    <p>{props.prep}</p>
+                    <p>{props.cook}</p>
                 </div>
             </div>
-            <p>This is a description of what the food is!</p>
+            <p>{props.content}</p>
+            <button onClick={()=>setView(true)}>Show Modal</button>
         </div>
     );
 }

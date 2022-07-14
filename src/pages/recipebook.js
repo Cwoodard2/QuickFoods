@@ -13,37 +13,35 @@ export default function RecipeBook() {
             <Navigation />
             <div className="recipeBookMain">
                 <h1>Olivia's Recipe Book</h1>
-                <button onClick={()=>setView(true)}>Show Modal</button>
-                <Modal onClose={() => setView(false)} show={showModal}/>
                 <div className="column" style={{height: "85vh", overflowY: "auto", gap: "3vw"}}>
                     <div className="column">
                         <h1>Breakfast Recipes</h1>
                         <div className="row" style={{gap: "5vw"}}>
-                            <RecipeCard />
-                            <RecipeCard />
-                            <RecipeCard />
-                            <RecipeCard />
-                            <RecipeCard />
+                            <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
+                            <RecipeCard recipe="recipe2" prep="5 min" cook="5min" content="This is recipe 2"/>
+                            <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
+                            <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
+                            <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
                         </div>
                     </div>
                     <h1>Lunch Recipes</h1>
                     <div className="column">
                         <div className="row" style={{gap: "5vw"}}>
-                            <RecipeCard />
-                            <RecipeCard />
-                            <RecipeCard />
-                            <RecipeCard />
-                            <RecipeCard />
+                            <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
+                            <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
+                            <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
+                            <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
+                            <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
                         </div>
                     </div>
                     <h1>Dinner Recipes</h1>
                     <div className="column">
                         <div className="row" style={{gap: "5vw"}}>
-                            <RecipeCard />
-                            <RecipeCard />
-                            <RecipeCard />
-                            <RecipeCard />
-                            <RecipeCard />
+                            <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
+                            <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
+                            <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
+                            <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
+                            <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
                         </div>
                     </div>
                     </div>
