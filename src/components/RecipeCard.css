@@ -1,11 +1,17 @@
 .recipeCardMain {
     width: 20vw;
-    height: 22vw;
+    /* height: 22vw; */
+    padding: 1vw;
     border-radius: 6px;
     border-color: black;
     border: solid;
     background-color: cadetblue;
-    box-shadow: 0px 0px 10px 2px;
+    box-shadow: 0px 5px 10px 3px;
+    transition: box-shadow 0.5s;
+}
+
+.recipeCardMain:hover {
+    box-shadow: 0px 5px 10px 5px;
 }
 
 .recipeCardContent {

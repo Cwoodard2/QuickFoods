@@ -27,7 +27,7 @@
 
 @keyframes slide-from-top {
     0% {
-        transform: translateY(-100vw);
+        transform: translateY(100vw);
     }
 
     100% {

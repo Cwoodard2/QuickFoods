@@ -12,12 +12,14 @@ export default function RecipeCard(props) {
             <div className="recipeCardContent">
                 <h3>{props.recipe}</h3>
                 <div>
-                    <p>{props.prep}</p>
-                    <p>{props.cook}</p>
+                    <p>Prep: {props.prep}<br></br><br></br>Cook: {props.cook}</p>
                 </div>
             </div>
-            <p>{props.content}</p>
             <button onClick={()=>setView(true)}>Show Modal</button>
+            {/* <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+                <p>{props.content}</p>
+                <button onClick={()=>setView(true)}>Show Modal</button>
+            </div> */}
         </div>
     );
 }

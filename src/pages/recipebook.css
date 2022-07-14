@@ -9,3 +9,12 @@
     justify-content: space-evenly;
     /* gap: 2vw; */
 }
+
+.addButton {
+    background-color: white;
+    border-radius: 50%;
+    width: 3vw;
+    height: 3vw;
+    font-size: large;
+    cursor: pointer;
+}

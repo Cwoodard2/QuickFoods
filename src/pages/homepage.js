@@ -26,15 +26,15 @@ export default function Homepage() {
                     <div className="column">
                         <h2 style={{color: "#e68a00"}}>{mealSuggestions} Suggestions</h2>
                         <div className="recipeSuggestions row">
-                            <RecipeCard />
-                            <RecipeCard />
+                            <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
+                            <RecipeCard recipe="recipe2" prep="5 min" cook="5min" content="This is recipe 2"/>
                         </div>
                     </div>
                     <div className="column">
                         <h2>Snack Suggestions</h2>
                         <div className="recipeSuggestions row">
-                            <RecipeCard />
-                            <RecipeCard />
+                            <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
+                            <RecipeCard recipe="recipe2" prep="5 min" cook="5min" content="This is recipe 2"/>
                         </div>
                     </div>
                 </div>

@@ -12,13 +12,15 @@ export default function RecipeBook(props) {
         <StandardPage>
             <Navigation />
             <div className="recipeBookMain">
-                <h1>Olivia's Recipe Book</h1>
+                <div className="row" style={{gap: "2vw", alignItems: "center"}}>
+                    <h1>Olivia's Recipe Book</h1>
+                    <button onClick={()=>setCreate(true)} className="addButton">&#43;</button>
+                </div>
                 <CreateRecipeModal title={props.recipe} content={props.content} onClose={() => setCreate(false)} show={showCreateModal}/>
-                <button onClick={()=>setCreate(true)}>Show Modal</button>
-                <div className="column" style={{height: "85vh", overflowY: "auto", gap: "3vw"}}>
+                <div className="column" style={{overflowY: "auto", gap: "3vw"}}>
                     <div className="column">
                         <h1>Breakfast Recipes</h1>
-                        <div className="row" style={{gap: "5vw"}}>
+                        <div className="row" style={{gap: "5vw", paddingLeft: "2vw", paddingRight: "2vw", paddingTop: "1vw", paddingBottom: "2vw"}}>
                             <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
                             <RecipeCard recipe="recipe2" prep="5 min" cook="5min" content="This is recipe 2"/>
                             <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
@@ -26,9 +28,9 @@ export default function RecipeBook(props) {
                             <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
                         </div>
                     </div>
-                    <h1>Lunch Recipes</h1>
                     <div className="column">
-                        <div className="row" style={{gap: "5vw"}}>
+                        <h1>Lunch Recipes</h1>
+                        <div className="row" style={{gap: "5vw", paddingLeft: "2vw", paddingRight: "2vw", paddingTop: "1vw", paddingBottom: "2vw"}}>
                             <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
                             <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
                             <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
@@ -36,9 +38,9 @@ export default function RecipeBook(props) {
                             <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
                         </div>
                     </div>
-                    <h1>Dinner Recipes</h1>
                     <div className="column">
-                        <div className="row" style={{gap: "5vw"}}>
+                        <h1>Dinner Recipes</h1>
+                        <div className="row" style={{gap: "5vw", paddingLeft: "2vw", paddingRight: "2vw", paddingTop: "1vw", paddingBottom: "2vw"}}>
                             <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
                             <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
                             <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>

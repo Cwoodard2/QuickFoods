@@ -10,16 +10,16 @@ export default function Navigation() {
                 <button>LOGO</button>
             </Link>
             <Link to="/homepage">
-                <button>Home</button>
+                <button className="navButton">&#8962;</button>
             </Link>
             <Link to="/RecipeBook">
-                <button>Recipe Book</button>
+                <button className="navButton">&#128214;</button>
             </Link>
             <Link to="/GroceryList">
-                <button>Grocery List</button>
+                <button className="navButton">&#128220;</button>
             </Link>
             <Link to="/Calender">
-                <button>Calender</button>
+                <button className="navButton">&#128198;</button>
             </Link>
         </div>
     );
