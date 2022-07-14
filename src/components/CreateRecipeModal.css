@@ -11,7 +11,7 @@
     z-index: 2;
 }
 
-.modalContent {
+.ModalContent {
     animation-name: slide-from-top;
     animation-duration: 0.75s;
     display: flex;

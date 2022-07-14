@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import { HashRouter, Routes, Route } from "react-router-dom";
+import Login from './pages/login';
 import Homepage from './pages/homepage';
 import RecipeBook from './pages/recipebook';
 import GroceryList from './pages/grocerylist';
@@ -27,7 +28,8 @@ function App() {
     // </div>
     <HashRouter>
         <Routes>
-          <Route path="/" element={<Homepage/>}/>
+          <Route path="/" element={<Login/>}></Route>
+          <Route path="/homepage" element={<Homepage/>}/>
           <Route path="/recipebook" element={<RecipeBook/>}/>
           <Route path="/grocerylist" element={<GroceryList/>}/>
           <Route path="/calender" element={<Calender/>}/>

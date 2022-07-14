@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 export default function Navigation() {
     return(
         <div className="navigation">
-            <Link to="/">
+            <Link to="/homepage">
                 <button>LOGO</button>
             </Link>
-            <Link to="/">
+            <Link to="/homepage">
                 <button>Home</button>
             </Link>
             <Link to="/RecipeBook">

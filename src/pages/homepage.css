@@ -29,4 +29,8 @@
 
 .recipeSuggestions {
     gap: 1vw;
+    padding-top: 2vw;
+    padding-left: 0.5vw;
+    padding-bottom: 2vw;
+    padding-right: 1vw;
 }

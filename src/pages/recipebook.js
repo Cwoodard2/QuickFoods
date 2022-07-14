@@ -3,16 +3,18 @@ import StandardPage from "../components/StandardPage";
 import Navigation from "../components/Navigation";
 import RecipeCard from "../components/RecipeCard";
 import "./recipebook.css";
-import Modal from "../components/Modal";
+import CreateRecipeModal from "../components/CreateRecipeModal";
 
-export default function RecipeBook() {
-    const [showModal, setView] = useState(false);
+export default function RecipeBook(props) {
+    const [showCreateModal, setCreate] = useState(false);
 
     return(
         <StandardPage>
             <Navigation />
             <div className="recipeBookMain">
                 <h1>Olivia's Recipe Book</h1>
+                <CreateRecipeModal title={props.recipe} content={props.content} onClose={() => setCreate(false)} show={showCreateModal}/>
+                <button onClick={()=>setCreate(true)}>Show Modal</button>
                 <div className="column" style={{height: "85vh", overflowY: "auto", gap: "3vw"}}>
                     <div className="column">
                         <h1>Breakfast Recipes</h1>
