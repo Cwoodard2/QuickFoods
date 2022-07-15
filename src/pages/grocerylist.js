@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { fillArray } from "../database/firebaseInterface";
 import StandardPage from "../components/StandardPage";
 import Navigation from "../components/Navigation";
 import GroceryListCat from "../components/GroceryListCat";
 import "./grocerylist.css";
 
 export default function GroceryList() {
+    var otherList;
+
+    const [groceryList, setGrocery] = useState({});
+
     var dairy = ["milk", "cheese", "yogurt"];
     var vegetables = ["brocoli", "tomoato", "cumcumber"];
     var fruit = ["watermelon", "banana", "grape"];
@@ -12,6 +17,21 @@ export default function GroceryList() {
     var bread = ["bread"];
     var protein = ["Beef", "chicken"];
     var random = ["pickles"];
+
+    useEffect(() => {
+        const fetchData = async () => {
+          var list = await fillArray();
+          console.log(list);
+          setGrocery(list);
+          console.log(groceryList);
+        };
+        
+        console.log("Fetching Data");
+        console.log(groceryList.GroceryList);
+        fetchData();
+      }, []);
+
+    console.log(groceryList.GroceryList);
 
     return(
         <StandardPage>
