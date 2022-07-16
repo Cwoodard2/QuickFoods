@@ -54,16 +54,16 @@ export default function RecipeBook(props) {
                 <div className="column" style={{overflowY: "auto", gap: "3vw"}}>
                     <div className="column">
                         <h1>Breakfast Recipes</h1>
-                        <div className="row" style={{gap: "5vw", paddingLeft: "2vw", paddingRight: "2vw", paddingTop: "1vw", paddingBottom: "2vw"}}>
+                        {/* <div className="row" style={{gap: "5vw", paddingLeft: "2vw", paddingRight: "2vw", paddingTop: "1vw", paddingBottom: "2vw"}}> */}
                             {/* <RecipeCard recipe={fillRecipes.BreakfastRecipes[0].Name} prep={fillRecipes.BreakfastRecipes[0].PrepTime} cook={fillRecipes.BreakfastRecipes[0].CookTime} content={fillRecipes.BreakfastRecipes[0].Description}/>
                             <RecipeCard recipe="recipe2" prep="5 min" cook="5min" content="This is recipe 2"/>
                             <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
                             <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
                             <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/> */}
-                            <ul>
+                            <ul className="row" style={{gap: "5vw", paddingLeft: "2vw", paddingRight: "2vw", paddingTop: "1vw", paddingBottom: "2vw"}}>
                                 {thisBreakfast}
                             </ul>
-                        </div>
+                        {/* </div> */}
                     </div>
                     <div className="column">
                         <h1>Lunch Recipes</h1>
