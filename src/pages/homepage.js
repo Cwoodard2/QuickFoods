@@ -9,19 +9,23 @@ export default function Homepage() {
     var currentTime = date.getHours();
     console.log(typeof currentTime);
     var mealSuggestions;
+    var timeOfDay;
 
     if (parseInt(currentTime) >= 0 && parseInt(currentTime) <= 11){
         mealSuggestions = "Breakfast";
+        timeOfDay = "Morning";
     } else if(parseInt(currentTime) >= 12 && parseInt(currentTime) <= 16) {
         mealSuggestions = "Lunch";
-    } else if(currentTime >= 17 && currentTime <= 21) {
+        timeOfDay = "Afternoon";
+    } else if(currentTime >= 17 && currentTime <= 23) {
         mealSuggestions = "Dinner";
+        timeOfDay = "Evening";
     }
     return (
         <StandardPage>
             <Navigation />
             <div className="homepageMain">
-                <h1>Good Evening, Olivia</h1>
+                <h1>Good {timeOfDay}, Olivia</h1>
                 <div className="recipeCards">
                     <div className="column">
                         <h2 style={{color: "#e68a00"}}>{mealSuggestions} Suggestions</h2>

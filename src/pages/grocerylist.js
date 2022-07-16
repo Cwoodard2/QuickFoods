@@ -21,17 +21,16 @@ export default function GroceryList() {
     useEffect(() => {
         const fetchData = async () => {
           var list = await fillArray();
-          console.log(list);
-          setGrocery(list);
-          console.log(groceryList);
+          setGrocery(list.Testing);
         };
         
         console.log("Fetching Data");
-        console.log(groceryList.GroceryList);
         fetchData();
       }, []);
 
-    console.log(groceryList.GroceryList);
+    console.log(groceryList);
+    // var theDairy = groceryList.Dairy;
+    // console.log("theDairy " +  theDairy);
 
     return(
         <StandardPage>

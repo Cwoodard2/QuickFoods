@@ -3,8 +3,13 @@ import React, { useEffect, useState } from "react";
 export default function GroceryListCat(props) {
     var category = props.whichCat;
     var catItems = props.catItems;
-
+    // console.log(props.catItems);
     const [items, setValue] = useState(props.catItems);
+
+    // if (category === "Dairy") {
+    //     setValue(catItems.Dairy);
+    // }
+    // const [items, setValue] = useState(props.catItems);
 
     function addItem() {
         const newList = items.concat(document.getElementById("addBox").value);

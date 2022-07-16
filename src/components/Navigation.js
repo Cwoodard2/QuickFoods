@@ -1,5 +1,6 @@
 import React from "react";
 import "./Navigation.css";
+import Logo from "../images/LogoForQuickFoods.png";
 import Navbutton from "./Navbutton";
 import { Link } from "react-router-dom";
 
@@ -7,7 +8,7 @@ export default function Navigation() {
     return(
         <div className="navigation">
             <Link to="/homepage">
-                <button>LOGO</button>
+                <img src={Logo} style={{width: "7vw", height: "14vh"}}/>
             </Link>
             <Link to="/homepage">
                 <button className="navButton">&#8962;</button>
