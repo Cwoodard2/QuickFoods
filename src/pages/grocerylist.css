@@ -17,3 +17,8 @@
     padding: 1vw;
 }
 
+@media  screen and (max-width: 500px) {
+    .groceryList {
+        width: 80vw;
+    }
+}
