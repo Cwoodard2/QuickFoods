@@ -11,10 +11,11 @@ export default function Modal(props) {
         <div className="modal">
             <div className="modalContent">
                 <h1>{props.title}</h1>
-                <p>{props.content}</p>
-                <h3>Prep</h3>
-                <p>{props.ingredients}</p>
+                <p>{props.description}</p>
+                <h3>Prep: {props.prepTime}</h3>
+                <p>{props.prep}</p>
                 <h3>Instructions</h3>
+                <p>Cook Time: {props.cookTime}</p>
                 <p>{props.instructions}</p>
                 <button onClick={props.onClose}>Close</button>
             </div>
