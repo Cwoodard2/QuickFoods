@@ -16,7 +16,9 @@ export default function Modal(props) {
                 <p>{props.prep}</p>
                 <h3>Instructions</h3>
                 <p>Cook Time: {props.cookTime}</p>
-                <p>{props.instructions}</p>
+                <div className="wrapText">
+                    <p>{props.instructions}</p>
+                </div>
                 <button onClick={props.onClose}>Close</button>
             </div>
         </div>
