@@ -8,5 +8,7 @@
 }
 
 ::selection {
-    color: purple;
+    background-color: purple;
+    border-radius: 12px;
+    border: solid;
 }
