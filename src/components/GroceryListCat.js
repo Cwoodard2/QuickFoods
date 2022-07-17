@@ -1,21 +1,40 @@
+import { doc, arrayUnion, updateDoc } from "firebase/firestore";
+import { db } from "../firebase";
 import React, { useEffect, useState } from "react";
 import { fillArray } from "../database/firebaseInterface";
 
 export default function GroceryListCat(props) {
     var category = props.whichCat;
-    var catItems = props.catItems;
-    // console.log(props.catItems);
     const [items, setValue] = useState([]);
-
-    // if (category === "Dairy") {
-    //     setValue(catItems.Dairy);
-    // }
-    // const [items, setValue] = useState(props.catItems);
 
     useEffect(() => {
         const fetchData = async () => {
           var list = await fillArray();
-          setValue(list.GroceryList.Dairy);
+        switch(category) {
+        case "Dairy":
+            setValue(list.GroceryList.Dairy);
+            break;
+        case "Vegetables":
+            setValue(list.GroceryList.Vegetables);
+            break;
+        case "Fruit":
+            setValue(list.GroceryList.Fruit);
+            break;
+        case "Snacks":
+            setValue(list.GroceryList.Snacks);
+            break;
+        case "Bread":
+            setValue(list.GroceryList.Bread);
+            break;
+        case "Protein":
+            setValue(list.GroceryList.Protein);
+            break;
+        case "Random":
+            setValue(list.GroceryList.Random);
+            break;
+        default:
+            break;
+      }
         };
         
         console.log("Fetching Data");
@@ -24,49 +43,33 @@ export default function GroceryListCat(props) {
 
       console.log(items);
 
-    //   switch(category) {
-    //     case "Dairy":
-    //         setValue(items.Dairy);
-    //         break;
-    //     case "Vegetables":
-    //         setValue(items.Vegetables);
-    //         break;
-    //     case "Fruit":
-    //         setValue(items.Fruit);
-    //         break;
-    //     case "Snacks":
-    //         setValue(items.Snacks);
-    //         break;
-    //     case "Bread":
-    //         setValue(items.Bread);
-    //         break;
-    //     case "Protein":
-    //         setValue(items.Protein);
-    //         break;
-    //     case "Random":
-    //         setValue(items.Random);
-    //         break;
-    //     default:
-    //         break;
-    //   }
-
-    function addItem() {
-        const newList = items.concat(document.getElementById("addBox").value);
+    async function addItem() {
+        const addItemRef = doc(db, "Users", "Jerry");
+        const newList = items.concat(document.getElementById("addBox"+category).value);
+        await updateDoc(addItemRef, {
+            ["GroceryList."+category]: newList
+        });
         setValue(newList);
     }
 
-    function removeItems(id) {
+    async function removeItems(id) {
+        const addItemRef = doc(db, "Users", "Jerry");
         const newList = items.filter((item) => item != id);
+        await updateDoc(addItemRef, {
+           ["GroceryList"+category]: newList
+        });
         setValue(newList);
     }
+
+    var thisId = "addBox"+category;
 
     const categoryItems = items.map((items) => <li key={items}>{items}<button onClick={() => removeItems(items)}><b>&times;</b></button></li>)
 
     return(
         <div>
-            <h2>{category}</h2>
-            <ul>{categoryItems}<li><input id="addBox" type="text" 
-            placeholder="Add an item"></input><button onClick={() => addItem()}>Add Item</button></li></ul>
+            <h2>{category}<input id={thisId} type="text" 
+            placeholder="Add an item"></input><button onClick={() => addItem()}>Add Item</button></h2>
+            <ul>{categoryItems}</ul>
         </div>
     );
 }

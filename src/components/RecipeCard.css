@@ -2,8 +2,8 @@
     width: 15vw;
     /* height: 22vw; */
     padding: 1vw;
+    background-color: white;
     border-radius: 6px;
-    background-color: cadetblue;
     box-shadow: 0px 2px 3px 0px;
     transition: box-shadow 0.5s;
 }

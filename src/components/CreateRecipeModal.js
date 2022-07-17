@@ -22,25 +22,31 @@ export default function CreateRecipeModal(props) {
         }
 
         console.log(recipeData);
+        const jerryRefDoc = doc(db, "Users", "Jerry");
 
         switch(document.getElementById("whichRecipe").value) {
             case "Breakfast":
                 recipe = "BreakfastRecipes";
+                await updateDoc(jerryRefDoc, {
+                    BreakfastRecipes: arrayUnion(recipeData)
+                });
                 break;
             case "Lunch":
                 recipe = "LunchRecipes";
+                await updateDoc(jerryRefDoc, {
+                    LunchRecipes: arrayUnion(recipeData)
+                });
                 break;
             case "Dinner":
                 recipe = "DinnerRecipes";
+                await updateDoc(jerryRefDoc, {
+                    DinnerRecipes: arrayUnion(recipeData)
+                });
                 break;
             default:
                 break;
         };
 
-        const jerryRefDoc = doc(db, "Users", "Jerry");
-        await updateDoc(jerryRefDoc, {
-            BreakfastRecipes: arrayUnion(recipeData)
-        });
 
         function closeModal() {
             return props.onClose();

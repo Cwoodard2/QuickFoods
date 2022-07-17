@@ -2,6 +2,7 @@
     display: flex;
     min-height: 100vh;
     flex-direction: row;
+    background-color: rgb(237, 237, 237);
     /* background: linear-gradient(0deg, hsl(194, 91%, 44%) 0%, hsl(201, 74%, 47%) 100%); */
     /* background-color: rgb(80, 80, 80); */
     /* background-color: rgb(43, 77, 109); */
