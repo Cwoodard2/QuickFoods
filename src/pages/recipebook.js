@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fillArray } from "../database/firebaseInterface";
-import { collection, getDocs, getDoc, doc } from "firebase/firestore";
+import { getDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 import { useAuth } from "../database/authContext";
 import StandardPage from "../components/StandardPage";
@@ -16,7 +15,6 @@ export default function RecipeBook(props) {
     const [lunch, setLunch] = useState([]);
     const [dinner, setDinner] = useState([]);
 
-    var breakfastRecipes;
     const {currentUser} = useAuth();
 
     useEffect(() => {
@@ -33,16 +31,6 @@ export default function RecipeBook(props) {
         console.log("Fetching Data");
         fetchData();
     }, []);
-    console.log(fillRecipes);
-
-    breakfastRecipes = fillRecipes.BreakfastRecipes;
-
-    console.log(breakfastRecipes);
-    console.log(breakfast);
-    // {() => {
-    //     const breakfastTime = fillRecipes.BreakfastRecipes.map(recipes => <li><RecipeCard recipe={recipes.Name} prep={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description}/></li>);
-    //     return breakfastTime;
-    //     }};
 
         function makeList() {
             const breakfastTime = breakfast.map((recipes) => <li className="recipeList"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep}/></li>);

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useAuth} from "../database/authContext";
-import { auth, db } from '../firebase';
-import { collection, updateDoc, doc, setDoc, DocumentSnapshot, getDoc, DocumentReference, } from "firebase/firestore";
+import { db } from '../firebase';
+import { doc, setDoc, getDoc } from "firebase/firestore";
 import Navigation from "../components/Navigation";
 import StandardPage from "../components/StandardPage";
 import RecipeCard from "../components/RecipeCard";
@@ -24,6 +24,7 @@ export default function Homepage() {
                 console.log("document found");
             } else {
                 console.log("creating doc");
+                prompt("Welcome to QuickFoods! Since you're a new user we'd like to know your name so you can have a more personalized service! PLease enter it below.");
                 const res = await setDoc(doc(db, "Users", currentUser.uid), {
                     BreakfastRecipes: [],
                     DinnerRecipes: [],

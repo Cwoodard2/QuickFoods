@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { fillArray } from "../database/firebaseInterface";
 import StandardPage from "../components/StandardPage";
 import Navigation from "../components/Navigation";
 import GroceryListCat from "../components/GroceryListCat";

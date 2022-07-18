@@ -1,7 +1,7 @@
 import React from "react";
 import { db } from "../firebase";
 import { useAuth } from "../database/authContext";
-import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import "./CreateRecipeModal.css";
 
 export default function CreateRecipeModal(props) {

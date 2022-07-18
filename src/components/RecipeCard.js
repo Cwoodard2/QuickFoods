@@ -16,10 +16,6 @@ export default function RecipeCard(props) {
                 </div>
             </div>
             <button onClick={()=>setView(true)}>Show Modal</button>
-            {/* <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
-                <p>{props.content}</p>
-                <button onClick={()=>setView(true)}>Show Modal</button>
-            </div> */}
         </div>
     );
 }

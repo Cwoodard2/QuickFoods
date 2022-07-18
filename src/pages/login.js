@@ -1,19 +1,10 @@
 import React from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import StandardPage from "../components/StandardPage";
+import "./login.scss";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../database/authContext";
 
 export default function Login() {
-    // const auth = getAuth();
-    // signInWithEmailAndPassword(auth, document.getElementById("username").value, document.getElementById("password").value)
-    //     .then((userCredential) => {
-    //         const user = userCredential.user
-    //         console.log("signed in");
-    //     })
-    //     .catch((error) => {
-    //         const errorCode = error.code;
-    //         const errorMessage = error.message;
-    //     });
     const {login, createUser} = useAuth();
     const navigate = useNavigate()
     
@@ -41,22 +32,19 @@ export default function Login() {
         }
     }
     return(
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input id="username" placeholder="username"></input>
-                <input id="password" placeholder="password"></input>
-                <input type="submit" value="login"/>
-            </form>
-            <form onSubmit={handleCreate}>
-                <input id="username" placeholder="username"></input>
-                <input id="password" placeholder="password"></input>
-                <input type="submit" value="Create Account"/>
-            </form>
-            {/* <input id="username" placeholder="username"></input>
-            <input id="password" placeholder="password"></input> */}
-            {/* <Link to="/homepage"> */}
-            {/* <button onClick={() => handleSubmit()}>Login</button> */}
-            {/* </Link> */}
-        </div>
+       <StandardPage >
+            <div className="forms">
+                <form onSubmit={handleSubmit} className="form">
+                    <input id="username" placeholder="Email" className="form-input login-form"></input>
+                    <input id="password" placeholder="Password" className="form-input login-form"></input>
+                    <input type="submit" value="login" className="form-button"/>
+                </form>
+                <form onSubmit={handleCreate} className="form">
+                    <input id="username" placeholder="username" className="form-input create-form"></input>
+                    <input id="password" placeholder="password" className="form-input create-form"></input>
+                    <input type="submit" value="Create Account" className="form-button"/>
+                </form>
+            </div>
+       </StandardPage>
     );
 }
