@@ -14,7 +14,7 @@ export default function Login() {
     //         const errorCode = error.code;
     //         const errorMessage = error.message;
     //     });
-    const {login} = useAuth();
+    const {login, createUser} = useAuth();
     const navigate = useNavigate()
     
     async function handleSubmit(e) {
@@ -33,11 +33,11 @@ export default function Login() {
         e.preventDefault();
         try {
             console.log(document.getElementById("username").value + document.getElementById("password").value)
-            await login(document.getElementById("username").value, document.getElementById("password").value);
-            console.log("sucess");
+            await createUser(document.getElementById("username").value, document.getElementById("password").value);
+            console.log("created");
             navigate("/homepage");
         } catch {
-            console.log("Sign in failed");
+            console.log("creation failed failed");
         }
     }
     return(

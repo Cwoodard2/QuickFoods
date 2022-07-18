@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { auth, db } from '../firebase';
 import { collection, updateDoc, doc, setDoc, DocumentSnapshot, getDoc, DocumentReference, } from "firebase/firestore";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, setPersistence, browserLocalPersistence } from "firebase/auth";
 
 const AuthContext = React.createContext();
 
@@ -16,15 +16,16 @@ export default function AuthProvider({children}) {
     function login(email, password) {
         const auth = getAuth();
         console.log("here");
-        return signInWithEmailAndPassword(auth, email, password)
+        return setPersistence(auth, browserLocalPersistence).then(() => {signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user
                 console.log("signed in");
             })
             .catch((error) => {
+                console.log("failed sign up");
                 const errorCode = error.code;
                 const errorMessage = error.message;
-            });
+            })});
     }
 
     async function createUser(email, password) {
@@ -33,22 +34,7 @@ export default function AuthProvider({children}) {
         return createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user
-                console.log("signed in");
-                // await setDoc(db, "Users", user.uid), {
-                //     BreakfastRecipes: [],
-                //     DinnerRecipes: [],
-                //     GroceryList: {
-                //         Bread: [],
-                //         Dairy: [],
-                //         Fruit: [],
-                //         Protein: [],
-                //         Random: [],
-                //         Snacks: [],
-                //         Vegetables: []
-                //     },
-                //     LunchRecipes: [],
-                //     SnackRecipes: []
-                // }
+                console.log("created user");
             })
             .catch((error) => {
                 const errorCode = error.code;

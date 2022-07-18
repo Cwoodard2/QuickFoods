@@ -1,9 +1,11 @@
 import React from "react";
 import { db } from "../firebase";
+import { useAuth } from "../database/authContext";
 import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 import "./CreateRecipeModal.css";
 
 export default function CreateRecipeModal(props) {
+    const {currentUser} = useAuth();
 
     if (!props.show) {
         return null;
@@ -22,7 +24,7 @@ export default function CreateRecipeModal(props) {
         }
 
         console.log(recipeData);
-        const jerryRefDoc = doc(db, "Users", "Jerry");
+        const jerryRefDoc = doc(db, "Users", currentUser.uid);
 
         switch(document.getElementById("whichRecipe").value) {
             case "Breakfast":

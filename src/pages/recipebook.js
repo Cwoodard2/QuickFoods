@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { fillArray } from "../database/firebaseInterface";
+import { collection, getDocs, getDoc, doc } from "firebase/firestore";
+import { db } from "../firebase";
+import { useAuth } from "../database/authContext";
 import StandardPage from "../components/StandardPage";
 import Navigation from "../components/Navigation";
 import RecipeCard from "../components/RecipeCard";
@@ -14,10 +17,13 @@ export default function RecipeBook(props) {
     const [dinner, setDinner] = useState([]);
 
     var breakfastRecipes;
+    const {currentUser} = useAuth();
 
     useEffect(() => {
         const fetchData = async () => {
-          const list = await fillArray();
+          const docRef = doc(db, "Users", currentUser.uid);
+          const docSnap = await getDoc(docRef);
+          const list = docSnap.data();
           setFillRecipes(list);
           setBreakfast(list.BreakfastRecipes);
           setLunch(list.LunchRecipes);
@@ -27,6 +33,7 @@ export default function RecipeBook(props) {
         console.log("Fetching Data");
         fetchData();
     }, []);
+    console.log(fillRecipes);
 
     breakfastRecipes = fillRecipes.BreakfastRecipes;
 

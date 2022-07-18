@@ -1,15 +1,19 @@
-import { doc, arrayUnion, updateDoc } from "firebase/firestore";
+import { doc, arrayUnion, updateDoc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
+import { useAuth } from "../database/authContext";
 import React, { useEffect, useState } from "react";
 import { fillArray } from "../database/firebaseInterface";
 
 export default function GroceryListCat(props) {
     var category = props.whichCat;
     const [items, setValue] = useState([]);
+    const {currentUser} = useAuth();
 
     useEffect(() => {
         const fetchData = async () => {
-          var list = await fillArray();
+          const docRef = doc(db, "Users", currentUser.uid);
+          const docSnap = await getDoc(docRef);
+          const list = docSnap.data();
         switch(category) {
         case "Dairy":
             setValue(list.GroceryList.Dairy);
@@ -44,7 +48,7 @@ export default function GroceryListCat(props) {
       console.log(items);
 
     async function addItem() {
-        const addItemRef = doc(db, "Users", "Jerry");
+        const addItemRef = doc(db, "Users", currentUser.uid);
         const newList = items.concat(document.getElementById("addBox"+category).value);
         await updateDoc(addItemRef, {
             ["GroceryList."+category]: newList
@@ -53,7 +57,7 @@ export default function GroceryListCat(props) {
     }
 
     async function removeItems(id) {
-        const addItemRef = doc(db, "Users", "Jerry");
+        const addItemRef = doc(db, "Users", currentUser.uid);
         const newList = items.filter((item) => item != id);
         await updateDoc(addItemRef, {
            ["GroceryList"+category]: newList
