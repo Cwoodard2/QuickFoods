@@ -1,4 +1,7 @@
 import React, {useState, useEffect} from "react";
+import {useAuth} from "../database/authContext";
+import { auth, db } from '../firebase';
+import { collection, updateDoc, doc, setDoc, DocumentSnapshot, getDoc, DocumentReference, } from "firebase/firestore";
 import Navigation from "../components/Navigation";
 import StandardPage from "../components/StandardPage";
 import RecipeCard from "../components/RecipeCard";
@@ -10,6 +13,37 @@ export default function Homepage() {
     console.log(typeof currentTime);
     var mealSuggestions;
     var timeOfDay;
+    const {currentUser} = useAuth();
+
+    useEffect(() => {
+        const checkForDoc = async () => {
+            console.log(currentUser.uid);
+            const docRef = doc(db, "Users", currentUser.uid);
+            const docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+                console.log("document found");
+            } else {
+                console.log("creating doc");
+                const res = await setDoc(doc(db, "Users", currentUser.uid), {
+                    BreakfastRecipes: [],
+                    DinnerRecipes: [],
+                    GroceryList: {
+                        Bread: [],
+                        Dairy: [],
+                        Fruit: [],
+                        Protein: [],
+                        Random: [],
+                        Snacks: [],
+                        Vegetables: []
+                    },
+                    LunchRecipes: [],
+                    SnackRecipes: []
+                });
+            }
+        }
+
+        checkForDoc();
+    }, []);
 
     if (parseInt(currentTime) >= 0 && parseInt(currentTime) <= 11){
         mealSuggestions = "Breakfast";

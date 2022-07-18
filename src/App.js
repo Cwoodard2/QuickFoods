@@ -7,6 +7,7 @@ import Homepage from './pages/homepage';
 import RecipeBook from './pages/recipebook';
 import GroceryList from './pages/grocerylist';
 import Calender from './pages/calender';
+import AuthProvider from './database/authContext';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
     //     </a>
     //   </header>
     // </div>
+    <AuthProvider>
     <HashRouter>
         <Routes>
           <Route path="/" element={<Login/>}></Route>
@@ -35,6 +37,7 @@ function App() {
           <Route path="/calender" element={<Calender/>}/>
         </Routes>
       </HashRouter>
+      </AuthProvider>
   );
 }
 
