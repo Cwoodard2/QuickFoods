@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Modal from "./Modal";
-import "./RecipeCard.css";
+import "./RecipeCard.scss";
 
 export default function RecipeCard(props) {
     const [showModal, setView] = useState(false);

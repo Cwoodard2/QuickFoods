@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import StandardPage from "../components/StandardPage";
 import Navigation from "../components/Navigation";
 import GroceryListCat from "../components/GroceryListCat";
-import "./grocerylist.css";
+import "./grocerylist.scss";
 
 export default function GroceryList() {
 

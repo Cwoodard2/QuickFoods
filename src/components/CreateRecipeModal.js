@@ -2,7 +2,7 @@ import React from "react";
 import { db } from "../firebase";
 import { useAuth } from "../database/authContext";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
-import "./CreateRecipeModal.css";
+import "./CreateRecipeModal.scss";
 
 export default function CreateRecipeModal(props) {
     const {currentUser} = useAuth();

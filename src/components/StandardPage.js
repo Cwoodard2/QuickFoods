@@ -1,5 +1,5 @@
 import React from "react";
-import './StandardPage.css';
+import './StandardPage.scss';
 
 export default function StandardPage(props) {
     var style = props.style;

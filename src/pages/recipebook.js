@@ -5,7 +5,7 @@ import { useAuth } from "../database/authContext";
 import StandardPage from "../components/StandardPage";
 import Navigation from "../components/Navigation";
 import RecipeCard from "../components/RecipeCard";
-import "./recipebook.css";
+import "./recipebook.scss";
 import CreateRecipeModal from "../components/CreateRecipeModal";
 
 export default function RecipeBook(props) {

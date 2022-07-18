@@ -1,5 +1,5 @@
 import React from "react";
-import "./Navigation.css";
+import "./Navigation.scss";
 import Logo from "../images/LogoForQuickFoods.png";
 import { Link } from "react-router-dom";
 

@@ -5,7 +5,7 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 import Navigation from "../components/Navigation";
 import StandardPage from "../components/StandardPage";
 import RecipeCard from "../components/RecipeCard";
-import "./homepage.css"
+import "./homepage.scss"
 
 export default function Homepage() {
     var date = new Date();
