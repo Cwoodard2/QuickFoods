@@ -4,6 +4,7 @@
     border-right: 0ch;
     border-radius: 3px;
     transition: border-bottom-color 0.5s transform 0.5s;
+    text-align: center;
     &:focus {
         border-top: 0ch;
         border-left: 0ch;
@@ -59,3 +60,21 @@
     gap: 1vw;
     padding: 1vh;
 }
+
+@media screen and (max-width: 576px) {  
+    .remove-item-button {
+        width: auto;
+    }
+
+    .add-item-button{
+        width: auto;
+    }
+
+    .category-title {
+        font-size: 1rem;
+    }
+
+    .add-item-input {
+        width: 20vw;
+    }
+  }

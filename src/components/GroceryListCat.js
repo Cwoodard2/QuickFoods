@@ -74,12 +74,12 @@ export default function GroceryListCat(props) {
     return(
         <div>
             <div className="row" style={{gap: "2vw", alignItems: "center"}}>
-                <h2 style={{color: "#2568FB"}}>{category}</h2>
+                <u><h2 style={{color: "#2568FB"}} className="category-title">{category}</h2></u>
                 <input id={thisId} type="text" 
                 placeholder="Add an item" className="add-item-input"></input>
                 <button onClick={() => addItem()} className="add-item-button">Add Item</button>
             </div>
-            <ul>{categoryItems}</ul>
+            <ul style={{borderLeft: "solid 5px", borderTopLeftRadius: "6px", borderBottomLeftRadius: "6px"}}>{categoryItems}</ul>
         </div>
     );
 }
