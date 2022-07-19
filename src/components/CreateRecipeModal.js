@@ -68,7 +68,15 @@ export default function CreateRecipeModal(props) {
                 <input id="description" placeholder="Description" className="input"></input>
                 <input id="prep" placeholder="Prep and Ingredients" className="input"></input>
                 <input id="instructions" placeholder="Cooking Instructions" className="input"></input>
-                <button onClick={() => WriteDataToDB()}>Add Recipe</button>
+                <div className="row" style={{gap: "1vw"}}>
+                    <label for="gluten-free">
+                        Is gluten-free? <input id="gluten-free" type="checkbox" value="Yes" className="add-recipe-checkbox"></input>
+                    </label>
+                    <label for="vegan">
+                        Is vegan? <input id="vegan" type="checkbox" value="Yes" className="add-recipe-checkbox"></input>
+                    </label>
+                </div>
+                <button onClick={() => WriteDataToDB()} className="add-recipe-button">Add Recipe</button>
             </div>
         </div>
     );

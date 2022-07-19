@@ -15,7 +15,7 @@ export default function RecipeCard(props) {
                     <p>Prep: {props.prepTime}<br></br><br></br>Cook: {props.cook}</p>
                 </div>
             </div>
-            <button onClick={()=>setView(true)}>Show Modal</button>
+            <button onClick={()=>setView(true)} className="show-details-button">More Details</button>
         </div>
     );
 }

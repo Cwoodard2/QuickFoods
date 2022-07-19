@@ -3,6 +3,7 @@ import { db } from "../firebase";
 import { useAuth } from "../database/authContext";
 import React, { useEffect, useState } from "react";
 import { fillArray } from "../database/firebaseInterface";
+import "./GroceryListCat.scss";
 
 export default function GroceryListCat(props) {
     var category = props.whichCat;
@@ -53,6 +54,7 @@ export default function GroceryListCat(props) {
         await updateDoc(addItemRef, {
             ["GroceryList."+category]: newList
         });
+        document.getElementById("addBox"+category).value = "";
         setValue(newList);
     }
 
@@ -71,8 +73,12 @@ export default function GroceryListCat(props) {
 
     return(
         <div>
-            <h2>{category}<input id={thisId} type="text" 
-            placeholder="Add an item"></input><button onClick={() => addItem()}>Add Item</button></h2>
+            <div className="row" style={{gap: "2vw", alignItems: "center"}}>
+                <h2>{category}</h2>
+                <input id={thisId} type="text" 
+                placeholder="Add an item" className="add-item-input"></input>
+                <button onClick={() => addItem()} className="add-item-button">Add Item</button>
+            </div>
             <ul>{categoryItems}</ul>
         </div>
     );
