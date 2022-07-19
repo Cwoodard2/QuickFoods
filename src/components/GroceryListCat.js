@@ -69,12 +69,12 @@ export default function GroceryListCat(props) {
 
     var thisId = "addBox"+category;
 
-    const categoryItems = items.map((items) => <li key={items}>{items}<button onClick={() => removeItems(items)}><b>&times;</b></button></li>)
+    const categoryItems = items.map((items) => <li key={items} className="grocery-list-item"><button onClick={() => removeItems(items)} className="remove-item-button"><b>&times;</b></button>{items}</li>)
 
     return(
         <div>
             <div className="row" style={{gap: "2vw", alignItems: "center"}}>
-                <h2>{category}</h2>
+                <h2 style={{color: "#2568FB"}}>{category}</h2>
                 <input id={thisId} type="text" 
                 placeholder="Add an item" className="add-item-input"></input>
                 <button onClick={() => addItem()} className="add-item-button">Add Item</button>
