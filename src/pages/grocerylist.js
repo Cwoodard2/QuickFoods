@@ -11,8 +11,8 @@ export default function GroceryList() {
             <Navigation />
             <div>
                 <h1>Olivia's Grocery List</h1>
-                <div className="groceryListMain">
-                    <div className="groceryList">
+                <div className="grocery-list-main">
+                    <div className="grocery-list">
                         <GroceryListCat whichCat="Dairy" />
                         <GroceryListCat whichCat="Vegetables" />
                         <GroceryListCat whichCat="Fruit" />

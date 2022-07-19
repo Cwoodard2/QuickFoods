@@ -5,10 +5,10 @@ export default function StandardPage(props) {
     var style = props.style;
 
     if(style==null) {
-        style = "standardPage"
+        style = "standard-page"
     }
     return (
-        <div className="standardPage">
+        <div className="standard-page">
             {props.children}
         </div>
     );

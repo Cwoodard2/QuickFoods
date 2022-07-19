@@ -11,7 +11,7 @@
     z-index: 2;
 }
 
-.ModalContent {
+.modal-content {
     animation-name: slide-from-top;
     animation-duration: 0.75s;
     display: flex;
@@ -30,15 +30,14 @@
     border-left: 0ch;
     border-right: 0ch;
     transition: border-bottom-color 0.5s transform 0.5s;
-}
-
-.input:focus {
-    border-top: 0ch;
-    border-left: 0ch;
-    border-right: 0ch;
-    border-bottom-color: green;
-    outline: none;
-    transform: scale(1.2);
+    &:focus {
+        border-top: 0ch;
+        border-left: 0ch;
+        border-right: 0ch;
+        border-bottom-color: green;
+        outline: none;
+        transform: scale(1.2);
+    }
 }
 
 @keyframes slide-from-top {

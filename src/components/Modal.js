@@ -10,7 +10,7 @@ export default function Modal(props) {
 
     return(
         <div className="modal">
-            <div className="modalContent">
+            <div className="modal-content">
                 <h1>{props.title}</h1>
                 <p>{props.description}</p>
                 <div className="row" style={{justifyContent: "space-evenly", minWidth: "55vw"}}>

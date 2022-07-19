@@ -59,7 +59,7 @@ export default function CreateRecipeModal(props) {
 
     return(
         <div className="modal" onClick={props.onClose}>
-            <div className="ModalContent" onClick={e => e.stopPropagation()}>
+            <div className="modal-content" onClick={e => e.stopPropagation()}>
                 <h2 style={{alignSelf: "flex-start", justifySelf: "flex-start", paddingLeft: "1vw"}}>Create Recipe</h2>
                 <input id="whichRecipe" placeholder="Breakfast, Lunch, or Dinner?"></input>
                 <input id="recipeName" placeholder="Recipe Name" className="input"></input>

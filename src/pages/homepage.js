@@ -59,21 +59,21 @@ export default function Homepage() {
     return (
         <StandardPage>
             <Navigation />
-            <div className="homepageMain">
+            <div className="homepage-main">
                 <div style={{width: "85vw", color: "#2568FB", backgroundColor: "#FECD45"}}>
                     <h1>Good {timeOfDay}, Olivia</h1>
                 </div>
-                <div className="recipeCards">
+                <div className="recipe-cards">
                     <div className="column">
                         <h2 style={{color: "#e68a00"}}>{mealSuggestions} Suggestions</h2>
-                        <div className="recipeSuggestions row">
+                        <div className="recipe-suggestions row">
                             <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
                             <RecipeCard recipe="recipe2" prep="5 min" cook="5min" content="This is recipe 2"/>
                         </div>
                     </div>
                     <div className="column">
                         <h2>Snack Suggestions</h2>
-                        <div className="recipeSuggestions row">
+                        <div className="recipe-suggestions row">
                             <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
                             <RecipeCard recipe="recipe2" prep="5 min" cook="5min" content="This is recipe 2"/>
                         </div>

@@ -1,4 +1,4 @@
-.recipeCardMain {
+.recipe-card-main {
     width: 15vw;
     /* height: 22vw; */
     padding: 1vw;
@@ -6,13 +6,12 @@
     border-radius: 6px;
     box-shadow: 0px 2px 3px 0px;
     transition: box-shadow 0.5s;
+    &:hover {
+        box-shadow: 0px 2px 5px 2px;
+    }
 }
 
-.recipeCardMain:hover {
-    box-shadow: 0px 2px 5px 2px;
-}
-
-.recipeCardContent {
+.recipe-card-content {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

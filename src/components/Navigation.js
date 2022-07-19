@@ -10,16 +10,16 @@ export default function Navigation() {
                 <img src={Logo} style={{width: "7vw", height: "14vh"}}/>
             </Link>
             <Link to="/homepage">
-                <button className="navButton">&#8962;</button>
+                <button className="nav-button">&#8962;</button>
             </Link>
             <Link to="/RecipeBook">
-                <button className="navButton">&#128214;</button>
+                <button className="nav-button">&#128214;</button>
             </Link>
             <Link to="/GroceryList">
-                <button className="navButton">&#128220;</button>
+                <button className="nav-button">&#128220;</button>
             </Link>
             <Link to="/Calender">
-                <button className="navButton">&#128198;</button>
+                <button className="nav-button">&#128198;</button>
             </Link>
         </div>
     );

@@ -6,10 +6,10 @@ export default function RecipeCard(props) {
     const [showModal, setView] = useState(false);
 
     return(
-        <div className="recipeCardMain">
+        <div className="recipe-card-main">
             <Modal title={props.recipe} description={props.content} prepTime={props.prepTime} prep={props.prep} instructions={props.instructions} cookTime={props.cook} onClose={() => setView(false)} show={showModal}/>
             <h2>Space For Picture!</h2>
-            <div className="recipeCardContent">
+            <div className="recipe-card-content">
                 <h3>{props.recipe}</h3>
                 <div>
                     <p>Prep: {props.prepTime}<br></br><br></br>Cook: {props.cook}</p>

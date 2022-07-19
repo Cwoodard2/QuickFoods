@@ -1,4 +1,4 @@
-.groceryListMain {
+.grocery-list-main {
     display: flex;
     flex-direction: row;
     width: 85vw;
@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-.groceryList {
+.grocery-list {
     display: flex;
     flex-direction: column;
     width: 45vw;
@@ -18,7 +18,7 @@
 }
 
 @media  screen and (max-width: 500px) {
-    .groceryList {
+    .grocery-list {
         width: 80vw;
     }
 }

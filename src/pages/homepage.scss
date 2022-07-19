@@ -1,4 +1,4 @@
-.homepageMain {
+.homepage-main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -13,7 +13,7 @@
     white-space: nowrap;
 }
 
-.recipeCards {
+.recipe-cards {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -27,7 +27,7 @@
     flex-direction: column;
 }
 
-.recipeSuggestions {
+.recipe-suggestions {
     gap: 1vw;
     padding-top: 2vw;
     padding-left: 0.5vw;

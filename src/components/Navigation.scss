@@ -13,15 +13,14 @@
     background-color: rgb(80, 80, 80);
 }
 
-.navButton {
+.nav-button {
     background: none;
     border: none;
     font-size: 80px;
     cursor: pointer;
     transition: all 0.5s;
     border-radius: 12px;
-}
-
-.navButton:hover {
-    background-color: orange;
+    &:hover {
+        background-color: orange;
+    }
 }
