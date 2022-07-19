@@ -60,7 +60,9 @@ export default function Homepage() {
         <StandardPage>
             <Navigation />
             <div className="homepageMain">
-                <h1>Good {timeOfDay}, Olivia</h1>
+                <div style={{width: "85vw", color: "#2568FB", backgroundColor: "#FECD45"}}>
+                    <h1>Good {timeOfDay}, Olivia</h1>
+                </div>
                 <div className="recipeCards">
                     <div className="column">
                         <h2 style={{color: "#e68a00"}}>{mealSuggestions} Suggestions</h2>

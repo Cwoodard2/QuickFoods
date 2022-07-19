@@ -5,6 +5,7 @@ import { useAuth } from "../database/authContext";
 import StandardPage from "../components/StandardPage";
 import Navigation from "../components/Navigation";
 import RecipeCard from "../components/RecipeCard";
+import "./homepage.scss"; //For row and column
 import "./recipebook.scss";
 import CreateRecipeModal from "../components/CreateRecipeModal";
 
