@@ -1,4 +1,4 @@
-.recipeBookMain {
+.recipe-book-main {
     display: flex;
     flex-direction: column;
     width: 90vw;
@@ -10,16 +10,28 @@
     /* gap: 2vw; */
 }
 
-.addButton {
-    background-color: white;
+.add-button {
+    background-color: #FECD45;
+    color: #2568FB;
     border-radius: 50%;
+    border: none;
     width: 3vw;
     height: 3vw;
     font-size: large;
     cursor: pointer;
+    box-shadow: 0 2px 3px 0px grey;
+    transition: all 0.3s;
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 5px 3px 0px grey;
+    }
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0px 2px 3px 0px grey;
+    }
 }
 
-.recipeList {
+.recipe-list {
     list-style: none;
     margin-left: 0;
 }

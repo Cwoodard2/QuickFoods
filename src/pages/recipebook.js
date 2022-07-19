@@ -34,17 +34,17 @@ export default function RecipeBook(props) {
     }, []);
 
         function makeList() {
-            const breakfastTime = breakfast.map((recipes) => <li className="recipeList"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep}/></li>);
+            const breakfastTime = breakfast.map((recipes) => <li className="recipe-list"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep}/></li>);
             return breakfastTime;
         };
 
         function makeList2() {
-            const lunchTime = lunch.map((recipes) => <li className="recipeList"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep}/></li>);
+            const lunchTime = lunch.map((recipes) => <li className="recipe-list"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep}/></li>);
             return lunchTime;
         };
 
         function makeList3() {
-            const dinnerTime = dinner.map((recipes) => <li className="recipeList"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep}/></li>);
+            const dinnerTime = dinner.map((recipes) => <li className="recipe-list"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep}/></li>);
             return dinnerTime;
         };
 
@@ -55,10 +55,10 @@ export default function RecipeBook(props) {
     return(
         <StandardPage>
             <Navigation />
-            <div className="recipeBookMain">
+            <div className="recipe-book-main">
                 <div className="row" style={{gap: "2vw", alignItems: "center"}}>
                     <h1>Olivia's Recipe Book</h1>
-                    <button onClick={()=>setCreate(true)} className="addButton">&#43;</button>
+                    <button onClick={()=>setCreate(true)} className="add-button">&#43;</button>
                 </div>
                 <CreateRecipeModal title={props.recipe} content={props.content} onClose={() => setCreate(false)} show={showCreateModal}/>
                 <div className="column" style={{overflowY: "auto", gap: "3vw"}}>
