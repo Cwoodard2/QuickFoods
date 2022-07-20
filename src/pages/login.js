@@ -27,6 +27,7 @@ export default function Login() {
         e.preventDefault();
         try {
             console.log(document.getElementById("username").value + document.getElementById("password").value)
+            console.log(login());
             await login(document.getElementById("username").value, document.getElementById("password").value);
             console.log("sucess");
             navigate("/homepage");

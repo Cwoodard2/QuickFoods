@@ -13,6 +13,15 @@ export default function CreateRecipeModal(props) {
 
     async function WriteDataToDB() {
         var recipe;
+        var attributes = [];
+        if(document.getElementById("gluten-free").checked) {
+            attributes.push(document.getElementById("gluten-free").value);
+        }
+
+        if (document.getElementById("vegan").checked) {
+            attributes.push(document.getElementById("vegan").value);
+            console.log(attributes);
+        }
         
         var recipeData = {
             Name: document.getElementById("recipeName").value,
@@ -20,7 +29,8 @@ export default function CreateRecipeModal(props) {
             CookTime: document.getElementById("cookTime").value,
             Description: document.getElementById("description").value,
             Prep: document.getElementById("prep").value,
-            Cook: document.getElementById("instructions").value
+            Cook: document.getElementById("instructions").value,
+            Attributes: attributes
         }
 
         console.log(recipeData);
@@ -70,10 +80,10 @@ export default function CreateRecipeModal(props) {
                 <input id="instructions" placeholder="Cooking Instructions" className="input"></input>
                 <div className="row" style={{gap: "1vw"}}>
                     <label for="gluten-free">
-                        Is gluten-free? <input id="gluten-free" type="checkbox" value="Yes" className="add-recipe-checkbox"></input>
+                        Is gluten-free? <input id="gluten-free" type="checkbox" value="Gluten Free" className="add-recipe-checkbox"></input>
                     </label>
                     <label for="vegan">
-                        Is vegan? <input id="vegan" type="checkbox" value="Yes" className="add-recipe-checkbox"></input>
+                        Is vegan? <input id="vegan" type="checkbox" value="Vegan" className="add-recipe-checkbox"></input>
                     </label>
                 </div>
                 <button onClick={() => WriteDataToDB()} className="add-recipe-button">Add Recipe</button>

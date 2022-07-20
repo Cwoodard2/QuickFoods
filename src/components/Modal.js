@@ -8,6 +8,9 @@ export default function Modal(props) {
         return null;
     }
 
+    const attributeArray = props.attributes.map((attribute) => <li key={attribute} className="recipe-attribute">{attribute}</li>)
+
+
     return(
         <div className="modal">
             <div className="modal-content">
@@ -25,6 +28,9 @@ export default function Modal(props) {
                     <h3>Cook Time: {props.cookTime}</h3>
                     <h3>Ingredients:</h3>
                     <h3>Attributes:</h3>
+                    <div className="row" style={{gap: "0.5vw"}}>
+                        {attributeArray}
+                    </div>
                 </div>
                 </div>
                 <button onClick={props.onClose} className="close-modal">Close</button>

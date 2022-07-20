@@ -15,6 +15,7 @@ export default function Homepage() {
     var mealSuggestions;
     var timeOfDay;
     const {currentUser} = useAuth();
+    console.log(currentUser);
 
     if (parseInt(currentTime) >= 0 && parseInt(currentTime) <= 11){
         mealSuggestions = "Breakfast";

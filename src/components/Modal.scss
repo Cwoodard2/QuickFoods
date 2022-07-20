@@ -52,6 +52,14 @@
     }
 }
 
+.recipe-attribute {
+    border: solid;
+    border-color: #FECD45;
+    border-radius: 12px;
+    background: none;
+    padding: 0.5vw;
+}
+
 @keyframes slide-from-top {
     0% {
         transform: translateY(100vw);

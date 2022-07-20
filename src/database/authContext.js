@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { db, auth } from '../firebase';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, setPersistence, browserLocalPersistence } from "firebase/auth";
 
 const AuthContext = React.createContext();
@@ -12,40 +13,41 @@ export default function AuthProvider({children}) {
     
 
     function login(email, password) {
-        const auth = getAuth();
+        // const auth = getAuth();
         console.log("here");
-        return setPersistence(auth, browserLocalPersistence).then(() => {signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user
-                console.log("signed in");
-            })
-            .catch((error) => {
-                console.log("failed sign up");
-                const errorCode = error.code;
-                const errorMessage = error.message;
-            })});
+        // setPersistence(auth, browserLocalPersistence).then(() => {
+            return signInWithEmailAndPassword(auth, email, password);
+            // .then((userCredential) => {
+            //     const user = userCredential.users;
+            //     console.log("signed in");
+            // })
+            // .catch((error) => {
+            //     console.log("failed sign up");
+            //     const errorCode = error.code;
+            //     const errorMessage = error.message;
+            // })
+        // });
     }
 
     async function createUser(email, password) {
-        const auth = getAuth();
+        // const auth = getAuth();
         console.log("here");
-        return createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user
-                console.log("created user");
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-            });
+        return createUserWithEmailAndPassword(auth, email, password);
+            // .then((userCredential) => {
+            //     const user = userCredential.user
+            //     console.log("created user");
+            // })
+            // .catch((error) => {
+            //     const errorCode = error.code;
+            //     const errorMessage = error.message;
+            // });
     }
 
     useEffect(() => {
         const auth = getAuth()
         const unsub = onAuthStateChanged(auth, (user) => {
-            if(user) {
+            console.log(user);
                 setCurrentUser(user);
-            }
         });
         
         return unsub;
