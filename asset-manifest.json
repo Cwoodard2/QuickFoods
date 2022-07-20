@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/QuickFoods/static/css/main.9a48ae5f.css",
-    "main.js": "/QuickFoods/static/js/main.7c6d46c5.js",
+    "main.css": "/QuickFoods/static/css/main.174ab40c.css",
+    "main.js": "/QuickFoods/static/js/main.4734cbfe.js",
     "static/js/787.29eca7e8.chunk.js": "/QuickFoods/static/js/787.29eca7e8.chunk.js",
     "index.html": "/QuickFoods/index.html",
-    "main.9a48ae5f.css.map": "/QuickFoods/static/css/main.9a48ae5f.css.map",
-    "main.7c6d46c5.js.map": "/QuickFoods/static/js/main.7c6d46c5.js.map",
+    "main.174ab40c.css.map": "/QuickFoods/static/css/main.174ab40c.css.map",
+    "main.4734cbfe.js.map": "/QuickFoods/static/js/main.4734cbfe.js.map",
     "787.29eca7e8.chunk.js.map": "/QuickFoods/static/js/787.29eca7e8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9a48ae5f.css",
-    "static/js/main.7c6d46c5.js"
+    "static/css/main.174ab40c.css",
+    "static/js/main.4734cbfe.js"
   ]
 }
