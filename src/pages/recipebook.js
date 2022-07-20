@@ -57,25 +57,25 @@ export default function RecipeBook(props) {
             <Navigation />
             <div className="recipe-book-main">
                 <div className="row" style={{gap: "2vw", alignItems: "center"}}>
-                    <h1>Olivia's Recipe Book</h1>
+                    <h1 className="title">Olivia's Recipe Book</h1>
                     <button onClick={()=>setCreate(true)} className="add-button">&#43;</button>
                 </div>
                 <CreateRecipeModal title={props.recipe} content={props.content} onClose={() => setCreate(false)} show={showCreateModal}/>
                 <div className="column" style={{overflowY: "auto", gap: "3vw"}}>
                     <div className="column">
-                        <h1>Breakfast Recipes</h1>
+                        <h1 className="subtitle">Breakfast Recipes</h1>
                             <ul className="row" style={{gap: "5vw", paddingLeft: "2vw", paddingRight: "2vw", paddingTop: "1vw", paddingBottom: "2vw"}}>
                                 {thisBreakfast}
                             </ul>
                     </div>
                     <div className="column">
-                        <h1>Lunch Recipes</h1>
+                        <h1 className="subtitle">Lunch Recipes</h1>
                         <ul className="row" style={{gap: "5vw", paddingLeft: "2vw", paddingRight: "2vw", paddingTop: "1vw", paddingBottom: "2vw"}}>
                             {thisLunch}
                         </ul>
                     </div>
                     <div className="column">
-                        <h1>Dinner Recipes</h1>
+                        <h1 className="subtitle">Dinner Recipes</h1>
                         <ul className="row" style={{gap: "5vw", paddingLeft: "2vw", paddingRight: "2vw", paddingTop: "1vw", paddingBottom: "2vw"}}>
                             {thisDinner}
                         </ul>

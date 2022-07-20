@@ -24,8 +24,8 @@
     color: #2568FB;
     font-size: 15px;
     cursor: pointer;
-    width: 7vw;
-    padding: 0.25vw;
+    width: auto;
+    padding: 0.5vw;
     transition: all 0.3s;
     &:hover {
         transform: translateY(-3px);
@@ -34,5 +34,23 @@
     &:active {
         transform: translateY(-1px);
         box-shadow: 0px 2px 3px 0px grey;
+    }
+}
+
+.recipe-name {
+    font-size: 1.5rem;
+}
+
+.recipe-times {
+    font-size: 1rem;
+}
+
+@media  screen and (max-width: 500px) {
+    .recipe-name {
+        font-size: 1rem;
+    }
+
+    .recipe-times {
+        font-size: 0.75rem;
     }
 }

@@ -26,6 +26,12 @@
     box-shadow: 0px 0px 10px 2px;
 }
 
+.modal-content-row {
+    justify-content: space-evenly; 
+    min-width: 55vw; 
+    // min-height: 40vh;
+}
+
 .wrap-text {
     width: 55vw;
 }
@@ -58,11 +64,31 @@
     border-radius: 12px;
     background: none;
     padding: 0.5vw;
-    list-style: none;
 }
 
-.quick-facts {
-    box-shadow: 0px 2px 3px 0px grey;
+.ingredients {
+    width: 10vw;
+}
+
+@media  screen and (max-width: 500px) {
+    .modal-content {
+        height: 85vh;
+        width: 90vw;
+    }
+
+    .modal-content-row {
+        min-width: 90vw;
+        flex-direction: column-reverse;
+    }
+
+    .modal-content-column {
+        align-items: center;
+    }
+
+    .close-modal {
+        height: auto;
+        padding: 0.5vw;
+    }
 }
 
 @keyframes slide-from-top {

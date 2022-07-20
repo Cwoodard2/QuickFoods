@@ -9,21 +9,23 @@ export default function Modal(props) {
     }
 
     const attributeArray = props.attributes.map((attribute) => <li key={attribute} className="recipe-attribute">{attribute}</li>)
-    const ingredientsArray = props.prep.map((attribute) => <li key={attribute} className="recipe-attribute">{attribute}</li>)
+    const ingredientsArray = props.prep.map((attribute) => <li key={attribute} className="ingredients">{attribute}</li>)
 
     return(
         <div className="modal">
             <div className="modal-content" style={{overflowY: "auto"}}>
                 <h1>{props.title}</h1>
                 <p>{props.description}</p>
-                <div className="row" style={{justifyContent: "space-evenly", minWidth: "55vw", minHeight: "40vh"}}>
-                <div className="column">
+                <div className="row modal-content-row">
+                <div className="column modal-content-column">
                     <h3>Ingredients:</h3>
                     <ul className="column" style={{gap: "0.5vw"}}>
                         {ingredientsArray}
                     </ul>
+                    <h3>Cooking Instructions</h3>
+                    <p>{props.instructions}</p>
                 </div>
-                <div className="column quick-facts">
+                <div className="column modal-content-column">
                     <h3>Prep Time: {props.prepTime}</h3>
                     <h3>Cook Time: {props.cookTime}</h3>
                     <h3>Attributes:</h3>
@@ -32,8 +34,6 @@ export default function Modal(props) {
                     </div>
                 </div>
                 </div>
-                <h3>Cooking Instructions</h3>
-                <p>{props.instructions}</p>
                 <button onClick={props.onClose} className="close-modal">Close</button>
             </div>
         </div>
