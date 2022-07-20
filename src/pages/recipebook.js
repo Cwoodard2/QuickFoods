@@ -39,12 +39,12 @@ export default function RecipeBook(props) {
         };
 
         function makeList2() {
-            const lunchTime = lunch.map((recipes) => <li className="recipe-list"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep} attributes=""/></li>);
+            const lunchTime = lunch.map((recipes) => <li className="recipe-list"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep} attributes={recipes.Attributes}/></li>);
             return lunchTime;
         };
 
         function makeList3() {
-            const dinnerTime = dinner.map((recipes) => <li className="recipe-list"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep} attributes=""/></li>);
+            const dinnerTime = dinner.map((recipes) => <li className="recipe-list"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep} attributes={recipes.Attributes}/></li>);
             return dinnerTime;
         };
 

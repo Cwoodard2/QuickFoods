@@ -23,8 +23,7 @@ export default function Login() {
     //     }
     // }
     
-    async function handleSubmit(e) {
-        e.preventDefault();
+    async function handleSubmit() {
         try {
             console.log(document.getElementById("username").value + document.getElementById("password").value)
             console.log(login());
@@ -36,8 +35,7 @@ export default function Login() {
         }
     }
 
-    async function handleCreate(e) {
-        e.preventDefault();
+    async function handleCreate() {
         try {
             console.log(document.getElementById("username").value + document.getElementById("password").value)
             await createUser(document.getElementById("username").value, document.getElementById("password").value);
@@ -52,12 +50,12 @@ export default function Login() {
             <div className="forms">
                 <h1 style={{color: "#2568FB"}}>QuickFoods</h1>
                 <p style={{color: "#2568FB"}}>Your food planning simplified</p>
-                <form onSubmit={handleSubmit} className="form login-form">
+                <form onSubmit={() => handleSubmit()} className="form login-form">
                     <input id="username" placeholder="Email" className="form-input"></input>
                     <input id="password" placeholder="Password" className="form-input"></input>
                     <input type="submit" value="login" className="form-button"/>
                 </form>
-                <form onSubmit={handleCreate} className="form create-form">
+                <form onSubmit={() => handleCreate()} className="form create-form">
                     <input id="username" placeholder="username" className="form-input"></input>
                     <input id="password" placeholder="password" className="form-input"></input>
                     <input type="submit" value="Create Account" className="form-button"/>
