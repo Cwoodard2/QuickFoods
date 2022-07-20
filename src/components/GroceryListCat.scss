@@ -61,6 +61,10 @@
     padding: 1vh;
 }
 
+.category-title {
+    font-size: calc(12px + 1vw);
+}
+
 @media screen and (max-width: 576px) {  
     .remove-item-button {
         width: auto;
@@ -71,7 +75,7 @@
     }
 
     .category-title {
-        font-size: 1rem;
+        font-size: calc(12px + 2vw);
     }
 
     .add-item-input {
