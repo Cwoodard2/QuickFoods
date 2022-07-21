@@ -16,7 +16,7 @@ export default function Modal(props) {
             <div className="modal-content" style={{overflowY: "auto"}}>
                 <h1>{props.title}</h1>
                 <p>{props.description}</p>
-                <div className="row modal-content-row">
+                <div className="modal-row modal-content-row">
                 <div className="column modal-content-column">
                     <h3>Ingredients:</h3>
                     <ul className="column" style={{gap: "0.5vw"}}>

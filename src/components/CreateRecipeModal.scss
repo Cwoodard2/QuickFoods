@@ -11,7 +11,7 @@
     z-index: 2;
 }
 
-.modal-content {
+.create-modal-content {
     animation-name: slide-from-top;
     animation-duration: 0.75s;
     display: flex;
@@ -46,9 +46,9 @@
     border-radius: 12px;
     background-color: #FECD45;
     color: #2568FB;
-    font-size: 15px;
+    font-size: calc(6px + 0.5vw);
     cursor: pointer;
-    width: 7vw;
+    width: calc(24px + 5vw);
     padding: 0.25vw;
     transition: all 0.3s;
     &:hover {
@@ -65,6 +65,13 @@
     transition: background-color 0.3s;
     &:checked {
         background: #2568FB;
+    }
+}
+
+@media  screen and (max-width: 500px) {
+    .create-modal-content {
+        height: 85vh;
+        width: 90vw;
     }
 }
 

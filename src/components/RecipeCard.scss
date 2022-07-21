@@ -1,4 +1,6 @@
 .recipe-card-main {
+    animation-name: slide-in-left;
+    animation-duration: 1s;
     // width: 15vw;
     /* height: 22vw; */
     padding: 1vw;
@@ -52,5 +54,14 @@
 
     .recipe-times {
         font-size: 0.75rem;
+    }
+}
+@keyframes slide-in-left {
+    0% {
+        transform: translateX(100vw);
+    }
+
+    100% {
+        transform: translateX(0vw);
     }
 }
