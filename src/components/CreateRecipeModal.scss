@@ -31,6 +31,8 @@
     border-left: 0ch;
     border-right: 0ch;
     transition: border-bottom-color 0.5s transform 0.5s;
+    background: none;
+    width: 20vw;
     &:focus {
         border-top: 0ch;
         border-left: 0ch;
@@ -68,10 +70,29 @@
     }
 }
 
+.show-column {
+    animation-name: slide-in-from-left;
+    animation-duration: 0.7s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 40vh;
+    width: 100%;
+}
+
+.no-show-column {
+    display: none;
+}
+
 @media  screen and (max-width: 500px) {
     .create-modal-content {
         height: 85vh;
         width: 90vw;
+    }
+
+    .show-column {
+        height: 65vh;
     }
 }
 
@@ -82,5 +103,15 @@
 
     100% {
         transform: translateY(0vw);
+    }
+}
+
+@keyframes slide-in-from-left {
+    0% {
+        transform: translateX(100vw);
+    }
+
+    100% {
+        transform: translateX(0vw);
     }
 }

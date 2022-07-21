@@ -7,9 +7,35 @@ import "./CreateRecipeModal.scss";
 export default function CreateRecipeModal(props) {
     const {currentUser} = useAuth();
     const [ingredients, setIngredients] = useState([]);
+    const [step1, setStep1] = useState("show-column");
+    const [step2, setStep2] = useState("no-show-column");
+    const [step3, setStep3] = useState("no-show-column");
+    
 
     if (!props.show) {
         return null;
+    }
+
+    function changeStep(stepChange) {
+        switch(stepChange) {
+            case "step1":
+                setStep1("show-column");
+                setStep2("no-show-column");
+                setStep3("no-show-column")
+                break;
+            case "step2":
+                setStep1("no-show-column");
+                setStep2("show-column");
+                setStep3("no-show-column")
+                break;
+            case "step3":
+                setStep1("no-show-column")
+                setStep2("no-show-column");
+                setStep3("show-column");
+                break;
+            default:
+                break;
+        }
     }
 
     function addItem() {
@@ -81,21 +107,34 @@ export default function CreateRecipeModal(props) {
         <div className="modal" onClick={props.onClose}>
             <div className="create-modal-content" onClick={e => e.stopPropagation()}>
                 <h2 style={{alignSelf: "flex-start", justifySelf: "flex-start", paddingLeft: "1vw"}}>Create Recipe</h2>
-                <input id="whichRecipe" placeholder="Breakfast, Lunch, or Dinner?"></input>
-                {/* <input type="radio">Radio</input> */}
-                <input id="recipeName" placeholder="Recipe Name" className="input"></input>
-                <div className="row" style={{width: "60vw", justifyContent: "space-evenly", alignItems: "flex-start"}}>
-                    <div className="column" style={{justifyContent: "space-evenly", minHeight: "40vh"}}>
-                        {/* <input id="description" placeholder="Description" className="input" size="50" height="10vw"></input>
-                        <input id="prep" placeholder="Prep and Ingredients" className="input"></input>
-                        <input id="instructions" placeholder="Cooking Instructions" className="input"></input> */}
+                <div className="row" style={{width: "100vw", justifyContent: "space-evenly", alignItems: "flex-start"}}>
+                    <div className={step1}>
+                        <h3>Let's get you started with a recipe name and description.</h3>
+                        <input id="whichRecipe" placeholder="Breakfast, Lunch, or Dinner?"></input>
+                        <input id="recipeName" placeholder="Recipe Name" className="input"></input>
                         <textarea rows="4" cols="25" id="description" placeholder="Description" className="input"></textarea>
-                        <textarea rows="4" cols="4" id="instructions" placeholder="Cooking Instructions" className="input"></textarea>
+                        <button className="add-item-button" onClick={() => changeStep("step2")}>Next Step</button>
                     </div>
-                    <div className="column" style={{justifyContent: "space-evenly", minHeight: "40vh"}}>
+                    <div className={step2}>
+                        <h3>Now let's add the time needed to prep <br></br>and cook and the cooking instructions.</h3>
                         <input id="prepTime" placeholder="Prep Time" className="input"></input>
                         <input id="cookTime" placeholder="Cook Time" className="input"></input>
-                        {/* <textarea rows="4" cols="4" id="prep" placeholder="Prep and Ingredients" className="input"></textarea> */}
+                        <textarea rows="4" cols="4" id="instructions" placeholder="Cooking Instructions" className="input"></textarea>
+                        <div className="row" style={{padding: "2vw", gap: "2vw"}}>
+                            <button className="add-item-button" onClick={() => changeStep("step1")}>Previous Step</button>
+                            <button className="add-item-button" onClick={() => changeStep("step3")}>Next Step</button>
+                        </div>
+                    </div>
+                    <div className={step3}>
+                         <div>
+                            <h3>And finally let's add the ingredients <br></br>and some special tags</h3>
+                            <div>
+                                <input id="ingredients" type="text" 
+                                placeholder="Add an ingredient" className="add-item-input"></input>
+                                <button className="add-item-button" onClick={() => addItem()}>Add Item</button>
+                            </div>
+                                <ul>{categoryItems}</ul>
+                            </div>
                         <div className="row" style={{gap: "1vw"}}>
                             <label for="gluten-free">
                                 Is gluten-free? <input id="gluten-free" type="checkbox" value="Gluten Free" className="add-recipe-checkbox"></input>
@@ -104,14 +143,7 @@ export default function CreateRecipeModal(props) {
                                 Is vegan? <input id="vegan" type="checkbox" value="Vegan" className="add-recipe-checkbox"></input>
                             </label>
                         </div>
-                    </div>
-                    <div>
-                        <div>
-                            <input id="ingredients" type="text" 
-                            placeholder="Add an ingredient" className="add-item-input"></input>
-                            <button className="add-item-button" onClick={() => addItem()}>Add Item</button>
-                        </div>
-                        <ul>{categoryItems}</ul>
+                        <button className="add-item-button" onClick={() => changeStep("step2")}>Previous Step</button>
                     </div>
                 </div>
                 <button onClick={() => WriteDataToDB()} className="add-recipe-button">Add Recipe</button>

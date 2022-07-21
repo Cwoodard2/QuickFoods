@@ -8,8 +8,17 @@ export default function Modal(props) {
         return null;
     }
 
-    const attributeArray = props.attributes.map((attribute) => <li key={attribute} className="recipe-attribute">{attribute}</li>)
-    const ingredientsArray = props.prep.map((attribute) => <li key={attribute} className="ingredients">{attribute}</li>)
+    if (props.attributes.length == 0) {
+        var attributeArray = "None";
+    } else {
+        var attributeArray = props.attributes.map((attribute) => <li key={attribute} className="recipe-attribute">{attribute}</li>)
+    }
+
+    if (props.prep.length == 0) {
+        var ingredientsArray = "None";
+    } else {
+        var ingredientsArray = props.prep.map((attribute) => <li key={attribute} className="ingredients">{attribute}</li>)
+    }
 
     return(
         <div className="modal">

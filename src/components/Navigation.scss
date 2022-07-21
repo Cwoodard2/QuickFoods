@@ -14,13 +14,15 @@
 }
 
 .nav-button {
-    background: none;
-    border: none;
+    background-color: #FECD45;
+    border: solid;
     font-size: 14px;
+    border-color: #2568FB;
     cursor: pointer;
     transition: all 0.5s;
-    border-radius: 12px;
+    border-radius: 6px;
+    color: #2568FB;
     &:hover {
-        background-color: orange;
+        background-color: #FECD45;
     }
 }
