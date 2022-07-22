@@ -5,24 +5,24 @@ import Login from './pages/login';
 import Homepage from './pages/homepage';
 import RecipeBook from './pages/recipebook';
 import GroceryList from './pages/grocerylist';
-import Calender from './pages/calender';
+import Calendar from './pages/calender';
 import AuthProvider from './database/authContext';
 import UserProvider from './database/userContext';
 
 function App() {
   return (
     <AuthProvider>
-    <UserProvider>
+    {/* <UserProvider> */}
     <HashRouter>
         <Routes>
           <Route path="/" element={<Login/>}></Route>
           <Route path="/homepage" element={<Homepage/>}/>
           <Route path="/recipebook" element={<RecipeBook/>}/>
           <Route path="/grocerylist" element={<GroceryList/>}/>
-          <Route path="/calender" element={<Calender/>}/>
+          <Route path="/calender" element={<Calendar/>}/>
         </Routes>
       </HashRouter>
-      </UserProvider>
+      {/* </UserProvider> */}
       </AuthProvider>
   );
 }
