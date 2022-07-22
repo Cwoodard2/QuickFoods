@@ -6,7 +6,7 @@ export function useUser() {
     return useContext(userContext);
 }
 
-export default function UserProvider() {
+export default function UserProvider(props) {
     const [data, setUserData] = useState();
 
     function fillUserData(breakfastRecipes, dinnerRecipes, bread, dairy, fruit, protein, random, snacks, vegetables, lunchRecipes, snackRecipes) {
@@ -36,8 +36,8 @@ export default function UserProvider() {
     }
 
     return(
-        <UserProvider.Provider value={value}>
-            {children}
-        </UserProvider.Provider>
+        <userContext.Provider value={value}>
+            {props.children}
+        </userContext.Provider>
     )
 }

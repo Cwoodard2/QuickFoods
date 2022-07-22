@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 import { useAuth } from "../database/authContext";
+import { useUser } from "../database/userContext";
 import StandardPage from "../components/StandardPage";
 import Navigation from "../components/Navigation";
 import RecipeCard from "../components/RecipeCard";
@@ -17,6 +18,7 @@ export default function RecipeBook(props) {
     const [dinner, setDinner] = useState([]);
 
     const {currentUser} = useAuth();
+    const { data, fillUserData } = useUser();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -24,9 +26,9 @@ export default function RecipeBook(props) {
           const docSnap = await getDoc(docRef);
           const list = docSnap.data();
           setFillRecipes(list);
-          setBreakfast(list.BreakfastRecipes);
-          setLunch(list.LunchRecipes);
-          setDinner(list.DinnerRecipes);
+        //   setBreakfast(list.BreakfastRecipes);
+        //   setLunch(list.LunchRecipes);
+        //   setDinner(list.DinnerRecipes);
         }
 
         console.log("Fetching Data");
@@ -34,17 +36,17 @@ export default function RecipeBook(props) {
     }, []);
 
         function makeList() {
-            const breakfastTime = breakfast.map((recipes) => <li className="recipe-list"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep} attributes={recipes.Attributes}/></li>);
+            const breakfastTime = data.BreakfastRecipes.map((recipes) => <li className="recipe-list"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep} attributes={recipes.Attributes}/></li>);
             return breakfastTime;
         };
 
         function makeList2() {
-            const lunchTime = lunch.map((recipes) => <li className="recipe-list"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep} attributes={recipes.Attributes}/></li>);
+            const lunchTime = data.LunchRecipes.map((recipes) => <li className="recipe-list"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep} attributes={recipes.Attributes}/></li>);
             return lunchTime;
         };
 
         function makeList3() {
-            const dinnerTime = dinner.map((recipes) => <li className="recipe-list"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep} attributes={recipes.Attributes}/></li>);
+            const dinnerTime = data.DinnerRecipes.map((recipes) => <li className="recipe-list"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep} attributes={recipes.Attributes}/></li>);
             return dinnerTime;
         };
 

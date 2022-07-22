@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {useAuth} from "../database/authContext";
 import { db } from '../firebase';
 import { doc, setDoc, getDoc } from "firebase/firestore";
+import { useUser } from "../database/userContext";
 import Navigation from "../components/Navigation";
 import StandardPage from "../components/StandardPage";
 import RecipeCard from "../components/RecipeCard";
@@ -15,6 +16,7 @@ export default function Homepage() {
     var mealSuggestions;
     var timeOfDay;
     const {currentUser} = useAuth();
+    const { data, fillUserData } = useUser();
     console.log(currentUser);
 
     if (parseInt(currentTime) >= 0 && parseInt(currentTime) <= 11){
@@ -35,14 +37,15 @@ export default function Homepage() {
             const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
                 console.log("document found");
+                const newData = docSnap.data();
+                fillUserData(newData.BreakfastRecipes, newData.DinnerRecipes, newData.Bread, newData.Dairy, newData.Fruit, newData.Protein, newData.Random, newData.Snacks, newData.Vegetables, newData.LunchRecipes, newData.SnackRecipes);
                 switch(mealSuggestions) {
                     case "Breakfast":
-                        const data = docSnap.data();
                         const whichRecipe1 = 0;
                         console.log("This is recipe 1" + whichRecipe1);
                         const whichRecipe2 = 0;
-                        setRecipe1(data.BreakfastRecipes[whichRecipe1]);
-                        setRecipe2(data.BreakfastRecipes[whichRecipe2]);
+                        setRecipe1(newData.BreakfastRecipes[whichRecipe1]);
+                        setRecipe2(newData.BreakfastRecipes[whichRecipe2]);
                         break;
                     case "Lunch":
                         break;
