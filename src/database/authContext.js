@@ -47,10 +47,10 @@ export default function AuthProvider({children}) {
         const auth = getAuth()
         const unsub = onAuthStateChanged(auth, (user) => {
             console.log(user);
-                setCurrentUser(user);
+            setCurrentUser(user);
         });
-        
-        return unsub;
+
+        // unsub();
     }, []);
 
     const value = {

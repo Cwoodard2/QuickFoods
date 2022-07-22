@@ -3,10 +3,13 @@ import StandardPage from "../components/StandardPage";
 import "./login.scss";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../database/authContext";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, setPersistence, browserLocalPersistence, inMemoryPersistence } from "firebase/auth";
+import { auth } from "../firebase";
 
 export default function Login() {
     const {login, createUser} = useAuth();
     const navigate = useNavigate()
+    
     // const [loginForm, setLoginForm] = useState("form login-form-active");
     // const [createForm, setCreateForm] = useState("form create-form-inactive");
     // var formButton = "Create an account";
@@ -26,10 +29,22 @@ export default function Login() {
     async function handleSubmit() {
         try {
             console.log(document.getElementById("username").value + document.getElementById("password").value)
-            console.log(login());
-            await login(document.getElementById("username").value, document.getElementById("password").value);
-            console.log("sucess");
-            navigate("/homepage");
+            // console.log(login());
+            // await login(document.getElementById("username").value, document.getElementById("password").value);
+            setPersistence(auth, browserLocalPersistence).then(() => {
+                signInWithEmailAndPassword(auth, document.getElementById("username").value, document.getElementById("password").value);
+                console.log("browser Persistence set");
+                console.log("sucess");
+                navigate("/homepage");
+                // .then(() => {
+                //     console.log("user signed in correctly");
+                // })
+                // .catch((error) => {
+                //         console.log("failed sign in");
+                //         const errorCode = error.code;
+                //         const errorMessage = error.message;
+                //     });
+            });
         } catch {
             console.log("Sign in failed");
         }
@@ -38,7 +53,8 @@ export default function Login() {
     async function handleCreate() {
         try {
             console.log(document.getElementById("username").value + document.getElementById("password").value)
-            await createUser(document.getElementById("username").value, document.getElementById("password").value);
+            // await createUser(document.getElementById("username").value, document.getElementById("password").value);
+            createUserWithEmailAndPassword(auth, document.getElementById("username").value, document.getElementById("password").value);
             console.log("created");
             navigate("/homepage");
         } catch {

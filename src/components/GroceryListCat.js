@@ -46,8 +46,6 @@ export default function GroceryListCat(props) {
         fetchData();
       }, []);
 
-      console.log(items);
-
     async function addItem() {
         const addItemRef = doc(db, "Users", currentUser.uid);
         const newList = items.concat(document.getElementById("addBox"+category).value);

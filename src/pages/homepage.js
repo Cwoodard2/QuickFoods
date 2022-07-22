@@ -74,7 +74,6 @@ export default function Homepage() {
 
         checkForDoc();
     }, []);
-    console.log(mainRecipe1);
 
 
     return (

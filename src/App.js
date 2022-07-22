@@ -7,10 +7,12 @@ import RecipeBook from './pages/recipebook';
 import GroceryList from './pages/grocerylist';
 import Calender from './pages/calender';
 import AuthProvider from './database/authContext';
+import UserProvider from './database/userContext';
 
 function App() {
   return (
     <AuthProvider>
+    <UserProvider>
     <HashRouter>
         <Routes>
           <Route path="/" element={<Login/>}></Route>
@@ -20,6 +22,7 @@ function App() {
           <Route path="/calender" element={<Calender/>}/>
         </Routes>
       </HashRouter>
+      </UserProvider>
       </AuthProvider>
   );
 }
