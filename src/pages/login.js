@@ -31,11 +31,13 @@ export default function Login() {
             console.log(document.getElementById("username").value + document.getElementById("password").value)
             // console.log(login());
             // await login(document.getElementById("username").value, document.getElementById("password").value);
-            setPersistence(auth, browserLocalPersistence).then(() => {
-                signInWithEmailAndPassword(auth, document.getElementById("username").value, document.getElementById("password").value);
-                console.log("browser Persistence set");
-                console.log("sucess");
-                navigate("/homepage");
+            // setPersistence(auth, browserLocalPersistence).then(() => {
+                signInWithEmailAndPassword(auth, document.getElementById("username").value, document.getElementById("password").value)
+                .then(() => {
+                    console.log("browser Persistence set");
+                    console.log("sucess");
+                    navigate("/homepage");
+                })
                 // .then(() => {
                 //     console.log("user signed in correctly");
                 // })
@@ -44,7 +46,7 @@ export default function Login() {
                 //         const errorCode = error.code;
                 //         const errorMessage = error.message;
                 //     });
-            });
+            // });
         } catch {
             console.log("Sign in failed");
         }
@@ -52,9 +54,9 @@ export default function Login() {
 
     async function handleCreate() {
         try {
-            console.log(document.getElementById("username").value + document.getElementById("password").value)
+            console.log(document.getElementById("username-create").value + document.getElementById("password-create").value)
             // await createUser(document.getElementById("username").value, document.getElementById("password").value);
-            createUserWithEmailAndPassword(auth, document.getElementById("username").value, document.getElementById("password").value);
+            createUserWithEmailAndPassword(auth, document.getElementById("username-create").value, document.getElementById("password-create").value);
             console.log("created");
             navigate("/homepage");
         } catch {
@@ -72,8 +74,8 @@ export default function Login() {
                     <input type="submit" value="login" className="form-button"/>
                 </form>
                 <form onSubmit={() => handleCreate()} className="form create-form">
-                    <input id="username" placeholder="username" className="form-input"></input>
-                    <input id="password" placeholder="password" className="form-input"></input>
+                    <input id="username-create" placeholder="username" className="form-input"></input>
+                    <input id="password-create" placeholder="password" className="form-input"></input>
                     <input type="submit" value="Create Account" className="form-button"/>
                 </form>
                 <button>Create an account</button>
