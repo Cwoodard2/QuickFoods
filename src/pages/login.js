@@ -56,13 +56,31 @@ export default function Login() {
         try {
             console.log(document.getElementById("username-create").value + document.getElementById("password-create").value)
             // await createUser(document.getElementById("username").value, document.getElementById("password").value);
-            createUserWithEmailAndPassword(auth, document.getElementById("username-create").value, document.getElementById("password-create").value);
+            signInWithEmailAndPassword(auth, document.getElementById("username").value, document.getElementById("password").value)
+                .then(() => {
+                    console.log("browser Persistence set");
+                    console.log("sucess");
+                    navigate("/homepage");
+                })
+            console.log("Demo loading");
+            navigate("/homepage");
+        } catch {
+            console.log("Demo Failedw");
+        }
+    }
+
+    async function handleDemo() {
+        try {
+            console.log(document.getElementById("username-create").value + document.getElementById("password-create").value)
+            // await createUser(document.getElementById("username").value, document.getElementById("password").value);
+            signInWithEmailAndPassword(auth, "example@example.com", "123456");
             console.log("created");
             navigate("/homepage");
         } catch {
             console.log("creation failed failed");
         }
     }
+
     return(
        <StandardPage>
             <div className="forms">
@@ -78,7 +96,7 @@ export default function Login() {
                     <input id="password-create" placeholder="password" className="form-input"></input>
                     <input type="submit" value="Create Account" className="form-button"/>
                 </form>
-                <button>Create an account</button>
+                <button id="demo" className="form-button" onClick={() => handleDemo()}>Demo</button>
             </div>
        </StandardPage>
     );
