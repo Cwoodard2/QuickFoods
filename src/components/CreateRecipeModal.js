@@ -94,10 +94,15 @@ export default function CreateRecipeModal(props) {
         };
 
 
+        function newRecipeLoad() {
+            return props.recipeLoad();
+        }
+
         function closeModal() {
             return props.onClose();
         }
 
+        newRecipeLoad();
         closeModal();
     }
 

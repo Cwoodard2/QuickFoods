@@ -8,6 +8,7 @@ export default function RecipeCard(props) {
     return(
         <div className="recipe-card-main">
             <Modal title={props.recipe} description={props.content} prepTime={props.prepTime} prep={props.prep} instructions={props.instructions} cookTime={props.cook} attributes={props.attributes} onClose={() => setView(false)} show={showModal}/>
+            <button className="remove-recipe-button">X</button>
             <h2 className="recipe-name">Space For Picture!</h2>
             <div className="recipe-card-content">
                 <h3 className="recipe-name">{props.recipe}</h3>

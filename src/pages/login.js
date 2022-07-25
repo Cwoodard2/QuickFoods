@@ -31,8 +31,10 @@ export default function Login() {
             console.log(document.getElementById("username").value + document.getElementById("password").value)
             // console.log(login());
             // await login(document.getElementById("username").value, document.getElementById("password").value);
-            setPersistence(auth, browserLocalPersistence).then(() => {
-                signInWithEmailAndPassword(auth, document.getElementById("username").value, document.getElementById("password").value);
+            // setPersistence(auth, browserLocalPersistence).then(() => {
+                signInWithEmailAndPassword(auth, document.getElementById("username").value, document.getElementById("password").value)
+                .then(() => {
+                });
                 console.log("browser Persistence set");
                 console.log("sucess");
                 navigate("/homepage");
@@ -44,7 +46,7 @@ export default function Login() {
                 //         const errorCode = error.code;
                 //         const errorMessage = error.message;
                 //     });
-            });
+            // });
         } catch {
             console.log("Sign in failed");
         }
@@ -52,15 +54,33 @@ export default function Login() {
 
     async function handleCreate() {
         try {
-            console.log(document.getElementById("username").value + document.getElementById("password").value)
+            console.log(document.getElementById("username-create").value + document.getElementById("password-create").value)
             // await createUser(document.getElementById("username").value, document.getElementById("password").value);
-            createUserWithEmailAndPassword(auth, document.getElementById("username").value, document.getElementById("password").value);
-            console.log("created");
+            signInWithEmailAndPassword(auth, document.getElementById("username").value, document.getElementById("password").value)
+                .then(() => {
+                    console.log("browser Persistence set");
+                    console.log("sucess");
+                    navigate("/homepage");
+                })
+            console.log("login works");
             navigate("/homepage");
         } catch {
-            console.log("creation failed failed");
+            console.log("Login failed");
         }
     }
+
+    async function handleDemo() {
+        try {
+            console.log(document.getElementById("username-create").value + document.getElementById("password-create").value)
+            // await createUser(document.getElementById("username").value, document.getElementById("password").value);
+            signInWithEmailAndPassword(auth, "example@example.com", "123456");
+            console.log("Demo loading");
+            navigate("/homepage");
+        } catch {
+            console.log("Demo Failed");
+        }
+    }
+
     return(
        <StandardPage>
             <div className="forms">
@@ -72,11 +92,11 @@ export default function Login() {
                     <input type="submit" value="login" className="form-button"/>
                 </form>
                 <form onSubmit={() => handleCreate()} className="form create-form">
-                    <input id="username" placeholder="username" className="form-input"></input>
-                    <input id="password" placeholder="password" className="form-input"></input>
+                    <input id="username-create" placeholder="username" className="form-input"></input>
+                    <input id="password-create" placeholder="password" className="form-input"></input>
                     <input type="submit" value="Create Account" className="form-button"/>
                 </form>
-                <button>Create an account</button>
+                <button id="demo" className="form-button" onClick={() => handleDemo()}>Demo</button>
             </div>
        </StandardPage>
     );
