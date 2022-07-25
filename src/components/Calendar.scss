@@ -1,6 +1,14 @@
 .calendar-day {
     display: flex;
     flex-direction: column;
-    height: 50vh;
+    height: 35vh;
+    width: 20vw;
     border: solid;
+    margin: 2vw;
+    border-radius: 6px;
+    box-shadow: 0px 2px 3px 0px grey;
+    transition: box-shadow 0.5s;
+    &:hover {
+        box-shadow: 0px 2px 5px 2px grey;
+    }
 }
