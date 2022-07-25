@@ -34,10 +34,10 @@ export default function Login() {
             // setPersistence(auth, browserLocalPersistence).then(() => {
                 signInWithEmailAndPassword(auth, document.getElementById("username").value, document.getElementById("password").value)
                 .then(() => {
-                    console.log("browser Persistence set");
-                    console.log("sucess");
-                    navigate("/homepage");
-                })
+                });
+                console.log("browser Persistence set");
+                console.log("sucess");
+                navigate("/homepage");
                 // .then(() => {
                 //     console.log("user signed in correctly");
                 // })
@@ -62,10 +62,10 @@ export default function Login() {
                     console.log("sucess");
                     navigate("/homepage");
                 })
-            console.log("Demo loading");
+            console.log("login works");
             navigate("/homepage");
         } catch {
-            console.log("Demo Failedw");
+            console.log("Login failed");
         }
     }
 
@@ -74,10 +74,10 @@ export default function Login() {
             console.log(document.getElementById("username-create").value + document.getElementById("password-create").value)
             // await createUser(document.getElementById("username").value, document.getElementById("password").value);
             signInWithEmailAndPassword(auth, "example@example.com", "123456");
-            console.log("created");
+            console.log("Demo loading");
             navigate("/homepage");
         } catch {
-            console.log("creation failed failed");
+            console.log("Demo Failed");
         }
     }
 
