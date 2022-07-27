@@ -5,6 +5,10 @@
     white-space: nowrap;
 }
 
+.modal-content-column {
+    white-space: initial;
+}
+
 .modal {
     position: fixed;
     top: 0;
@@ -31,6 +35,8 @@
     align-items: center;
     border-radius: 12px;
     box-shadow: 0px 0px 10px 2px;
+    overflow-y: auto;
+    flex-shrink: 1;
 }
 
 .modal-content-row {

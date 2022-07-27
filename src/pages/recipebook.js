@@ -16,6 +16,7 @@ export default function RecipeBook(props) {
     const [breakfast, setBreakfast] = useState([]);
     const [lunch, setLunch] = useState([]);
     const [dinner, setDinner] = useState([]);
+    const [loadRecipes, setLoadRecipes] = useState(false);
 
     const {currentUser} = useAuth();
     const { data, fillUserData } = useUser();
@@ -60,9 +61,9 @@ export default function RecipeBook(props) {
             <div className="recipe-book-main">
                 <div className="row" style={{gap: "2vw", alignItems: "center"}}>
                     <h1 className="title">Olivia's Recipe Book</h1>
-                    <button onClick={()=>setCreate(true)} className="add-button">&#43;</button>
+                    <button onClick={()=>{setCreate(true); setLoadRecipes(true);}} className="add-button">&#43;</button>
                 </div>
-                <CreateRecipeModal title={props.recipe} content={props.content} onClose={() => setCreate(false)} show={showCreateModal}/>
+                <CreateRecipeModal title={props.recipe} content={props.content} onClose={() => setCreate(false)} recipeLoad={() => setLoadRecipes(false)} show={showCreateModal}/>
                 <div className="column" style={{overflowY: "auto", gap: "3vw"}}>
                     <div className="column">
                         <h1 className="subtitle">Breakfast Recipes</h1>
