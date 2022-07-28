@@ -6,8 +6,9 @@
 }
 
 .modal-content-column {
-    width: 20vw;
+    // width: 20vw;
     white-space: initial;
+    overflow-y: auto;
 }
 
 .modal {
@@ -64,6 +65,94 @@
     transition: all 0.3s;
     &:hover {
         transform: translateY(-3px);
+        box-shadow: 0px 5px 3px 0px grey;
+    }
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0px 2px 3px 0px grey;
+    }
+}
+
+.view-on {
+    border: solid;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    // background-color: rgb(0, 17, 90);
+    background: none;
+    // color: rgb(238, 219, 5);
+    color: #2568FB;
+    font-size: 10px;
+    cursor: pointer;
+    // width: 15vw;
+    // height: 3vw;
+    transition: all 0.3s;
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 5px 3px 0px grey;
+    }
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0px 2px 3px 0px grey;
+    }
+}
+
+.view-off {
+    border: none;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    background: #FECD45;
+    color: #2568FB;
+    font-size: 10px;
+    cursor: pointer;
+    // width: 15vw;
+    // height: 3vw;
+    transition: all 0.3s;
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 5px 3px 0px grey;
+    }
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0px 2px 3px 0px grey;
+    }
+}
+
+.edit-on {
+    border: solid;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    // background-color: rgb(0, 17, 90);
+    background: none;
+    // color: rgb(238, 219, 5);
+    color: #2568FB;
+    font-size: 10px;
+    cursor: pointer;
+    // width: 15vw;
+    // height: 3vw;
+    transition: all 0.3s;
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 5px 3px 0px grey;
+    }
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0px 2px 3px 0px grey;
+    }
+}
+
+.edit-off {
+    border: none;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    background: #FECD45;
+    color: #2568FB;
+    font-size: 10px;
+    cursor: pointer;
+    // width: 15vw;
+    // height: 3vw;
+    transition: all 0.3s;
+    &:hover {
+        transform: translateY(-2px);
         box-shadow: 0px 5px 3px 0px grey;
     }
     &:active {
