@@ -5,11 +5,14 @@
     white-space: nowrap;
 }
 
-.modal-content-column {
-    // width: 20vw;
-    white-space: initial;
-    overflow-y: auto;
-}
+// .modal-content-column {
+//     width: 50%;
+//     overflow-wrap: break-word;
+//     // white-space: initial;
+//     align-items: space-evenly;
+//     justify-content: space-evenly;
+//     overflow-y: auto;
+// }
 
 .modal {
     position: fixed;
@@ -45,10 +48,6 @@
     justify-content: space-evenly; 
     min-width: 55vw; 
     // min-height: 40vh;
-}
-
-.wrap-text {
-    width: 55vw;
 }
 
 .close-modal {
@@ -196,6 +195,10 @@
     .close-modal {
         height: auto;
         padding: 0.5vw;
+    }
+
+    #instructions {
+        white-space: initial;
     }
 }
 

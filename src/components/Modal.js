@@ -64,7 +64,7 @@ export default function Modal(props) {
                 {/* <button onClick={() => handleClick()}>Edit</button> */}
                 <p id="description" style={{whiteSpace: "initial"}} contentEditable={editable}>{props.description}</p>
                 <div className="modal-row modal-content-row">
-                <div className="column modal-content-column">
+                <div className="column modal-content-column" style={{overflowY: "auto"}}>
                     <h3>Ingredients:</h3>
                     <ul className="column" style={{gap: "0.5vw"}}>
                         {ingredientsArray}

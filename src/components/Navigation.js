@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 export default function Navigation() {
     return(
         <div className="navigation">
-            <Link to="/homepage">
+            {/* <Link to="/homepage">
                 <img src={Logo} style={{width: "7vw", height: "14vh"}}/>
-            </Link>
+            </Link> */}
             <Link to="/homepage">
                 <button className="nav-button">Home</button>
             </Link>
