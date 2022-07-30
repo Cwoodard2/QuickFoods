@@ -10,7 +10,8 @@
     align-items: center;
     width: 100vw;
     height: 10vh;
-    background-color: rgb(80, 80, 80);
+    background-color: rgba(80, 80, 80, .80);
+    backdrop-filter: blur(10px);
     z-index: 2;
 }
 

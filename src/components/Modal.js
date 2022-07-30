@@ -9,6 +9,7 @@ export default function Modal(props) {
     const [editable, setEditable] = useState("false");
     const [viewMode, setViewMode] = useState("view-on");
     const [editMode, setEditMode] = useState("edit-off");
+    const [showSave, setShowSave] = useState("save-button-hidden");
 
     const {currentUser} = useAuth();
 
@@ -29,12 +30,22 @@ export default function Modal(props) {
         }
     }
 
+    const handleClose = () => {
+        setShowSave("save-button-hidden");
+        setEditable("false");
+        setViewMode("view-on");
+        setEditMode("edit-off");
+        props.onClose();
+    }
+
     const changeMode = (toMode) => {
         if (toMode === "view") {
+            setShowSave("save-button-hidden");
             setEditable("false");
             setViewMode("view-on");
             setEditMode("edit-off");
         } else if (toMode === "edit") {
+            setShowSave("save-button");
             setEditable("true");
             setViewMode("view-off");
             setEditMode("edit-on");
@@ -62,7 +73,7 @@ export default function Modal(props) {
                     <button onClick={() => changeMode("edit")} className={editMode}>Edit</button>
                 </div>
                 {/* <button onClick={() => handleClick()}>Edit</button> */}
-                <p id="description" style={{whiteSpace: "initial"}} contentEditable={editable}>{props.description}</p>
+                <p id="description" style={{textAlign: "center", whiteSpace: "break-spaces"}} contentEditable={editable}>{props.description}</p>
                 <div className="modal-row modal-content-row">
                 <div className="column modal-content-column" style={{overflowY: "auto"}}>
                     <h3>Ingredients:</h3>
@@ -70,7 +81,7 @@ export default function Modal(props) {
                         {ingredientsArray}
                     </ul>
                     <h3>Cooking Instructions</h3>
-                    <p contentEditable={editable} id="instructions">{props.instructions}</p>
+                    <p contentEditable={editable} id="instructions" style={{textAlign: "center", whiteSpace: "break-spaces"}}>{props.instructions}</p>
                     {/* <input id="instructions" value={props.instructions} disabled style={{width: "auto", height: "auto"}}></input> */}
                 </div>
                 <div className="column modal-content-column">
@@ -82,8 +93,10 @@ export default function Modal(props) {
                     </div>
                 </div>
                 </div>
-                <button onClick={props.onClose} className="close-modal">Close</button>
-                <button onClick={() => handleSave()} className="close-modal" style={{display: "none"}}>Save</button>
+                <div className="row" style={{padding: "2vw"}}>
+                    <button onClick={() => handleClose()} className="close-modal">Close</button>
+                    <button onClick={() => handleSave()} className={showSave}>Save</button>
+                </div>
             </div>
         </div>
     );
