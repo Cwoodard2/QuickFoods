@@ -80,7 +80,7 @@ export default function Homepage() {
         <StandardPage>
             <Navigation />
             <div className="homepage-main">
-                <div style={{width: "85vw", color: "#2568FB"}}>
+                <div style={{width: "100vw", color: "#2568FB"}}>
                     <h1>Good {timeOfDay}, Olivia</h1>
                 </div>
                 <div className="recipe-cards">
