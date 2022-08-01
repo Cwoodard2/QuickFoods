@@ -115,7 +115,7 @@ export default function CreateRecipeModal(props) {
                 <div className="row" style={{width: "100vw", justifyContent: "space-evenly", alignItems: "flex-start"}}>
                     <div className={step1}>
                         <h3 style={{textAlign: "center", whiteSpace: "break-spaces"}}>Let's get you started with a recipe name and description.</h3>
-                        <input id="whichRecipe" placeholder="Breakfast, Lunch, or Dinner?"></input>
+                        <input id="whichRecipe" placeholder="Breakfast, Lunch, or Dinner?" className="input"></input>
                         <input id="recipeName" placeholder="Recipe Name" className="input"></input>
                         <textarea rows="4" cols="25" id="description" placeholder="Description" className="input"></textarea>
                         <button className="add-item-button" onClick={() => changeStep("step2")}>Next Step</button>

@@ -1,15 +1,15 @@
 import React from "react";
 import "./Navigation.scss";
-import Logo from "../images/LogoForQuickFoods.png";
+import Logo from "../images/quickfoods-new-logo.png";
 import { Link } from "react-router-dom";
 
 export default function Navigation() {
     return(
         <div className="navigation">
-            <div style={{display: "flex", gap: "2vw", padding: "1vw"}}>
-                {/* <Link to="/homepage">
-                <img src={Logo} style={{width: "7vw", height: "14vh"}}/>
-                </Link> */}
+            <Link to="/homepage">
+                <img src={Logo} style={{width: "5vw", height: "5vw", alignSelf: "flex-start", justifySelf: "flex-start"}}/>
+                </Link>
+            <div style={{display: "flex", gap: "2vw", padding: "1vw", width: "inherit", display: "flex", justifyContent: "flex-end", alignItems: "center"}}>
                 <Link to="/homepage">
                     <button className="nav-button">Home</button>
                 </Link>
