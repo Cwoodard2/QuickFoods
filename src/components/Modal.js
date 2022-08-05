@@ -24,7 +24,7 @@ export default function Modal(props) {
         const recipeData = docData.BreakfastRecipes;
         for (var i = 0; i < docData.data(); i++) {
             if (recipeData[i].Name == props.title) {
-                //save my data
+                //save data
                 break;
             }
         }

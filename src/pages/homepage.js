@@ -83,23 +83,30 @@ export default function Homepage() {
                 <div style={{width: "100vw", color: "#2568FB"}}>
                     <h1>Good {timeOfDay}, Olivia</h1>
                 </div>
-                <div className="recipe-cards">
-                    <div className="column">
-                        <h2 style={{color: "#FECD45"}}>{mealSuggestions} Suggestions</h2>
-                        <div className="recipe-suggestions row">
-                            {/* <RecipeCard recipe={mainRecipe1.Name} prepTime={mainRecipe1.PrepTime} cook={mainRecipe1.CookTime} content={mainRecipe1.Description} instructions={mainRecipe1.Cook} prep={mainRecipe1.Prep}/>
-                            <RecipeCard recipe={mainRecipe2.Name} prepTime={mainRecipe2.PrepTime} cook={mainRecipe2.CookTime} content={mainRecipe2.Description} instructions={mainRecipe2.Cook} prep={mainRecipe2.Prep}/> */}
-                            <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
-                            <RecipeCard recipe="recipe2" prep="5 min" cook="5min" content="This is recipe 2"/>
+                <div className="row">
+                    <div>
+                        <div>
+                            Plan for the day
                         </div>
                     </div>
-                    <div className="column">
+                    <div className="recipe-cards">
+                        <div className="column">
+                            <h2 style={{color: "#FECD45"}}>{mealSuggestions} Suggestions</h2>
+                            <div className="recipe-suggestions column">
+                                {/* <RecipeCard recipe={mainRecipe1.Name} prepTime={mainRecipe1.PrepTime} cook={mainRecipe1.CookTime} content={mainRecipe1.Description} instructions={mainRecipe1.Cook} prep={mainRecipe1.Prep}/>
+                                <RecipeCard recipe={mainRecipe2.Name} prepTime={mainRecipe2.PrepTime} cook={mainRecipe2.CookTime} content={mainRecipe2.Description} instructions={mainRecipe2.Cook} prep={mainRecipe2.Prep}/> */}
+                                <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
+                                <RecipeCard recipe="recipe2" prep="5 min" cook="5min" content="This is recipe 2"/>
+                            </div>
+                        </div>
+                    </div>
+                    {/* <div className="column">
                         <h2>Snack Suggestions</h2>
-                        <div className="recipe-suggestions row">
+                        <div className="recipe-suggestions column">
                             <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
                             <RecipeCard recipe="recipe2" prep="5 min" cook="5min" content="This is recipe 2"/>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </StandardPage>
