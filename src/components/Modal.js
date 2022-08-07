@@ -17,9 +17,9 @@ export default function Modal(props) {
         return null;
     }
 
-    const handleSave = () => {
+    const handleSave = async () => {
         const docRef = doc(db, "Users", currentUser.uid);
-        const docSnap = getDoc(docRef);
+        const docSnap = await getDoc(docRef);
         const docData = docSnap.data();
         const recipeData = docData.BreakfastRecipes;
         for (var i = 0; i < docData.data(); i++) {

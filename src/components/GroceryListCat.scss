@@ -58,10 +58,10 @@
 
 .grocery-list-item {
     animation-name: slide-from-left;
-    animation-duration: 0.5s;
+    animation-duration: 1.25s;
     display: flex;
     padding: 1vw;
-    width: 30%;
+    width: 45%;
     border-radius: 6px;
     align-items: center;
     // background-color: rgba(254, 205, 69, 0.25);
@@ -99,10 +99,13 @@
 
   @keyframes slide-from-left {
     0% {
-        transform: translateX(-10vw);
+        // transform: translateX(-10vw);
+        opacity: 0;
+        transform: translateY(5px);
     }
 
     100% {
-        transform: translateX(0vw);
+        opacity: 1;
+        transform: translateY(0px);
     }
   }

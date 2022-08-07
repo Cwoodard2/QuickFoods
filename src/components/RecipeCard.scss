@@ -50,7 +50,8 @@
     border: none;
     border-radius: 12px;
     background-color: #FECD45;
-    color: #2568FB;
+    // color: #2568FB;
+    color: #1592d0;
     font-size: 15px;
     cursor: pointer;
     width: auto;
@@ -85,10 +86,14 @@
 }
 @keyframes slide-in-left {
     0% {
-        transform: translateX(100vw);
+        opacity: 0;
+        // transform: translateX(100vw);
+        transform: translateY(7px);
     }
 
     100% {
-        transform: translateX(0vw);
+        opacity: 1;
+        transform: translateY(0px);
+        // transform: translateX(0vw);
     }
 }
