@@ -43,6 +43,7 @@
     font-size: 15px;
     cursor: pointer;
     width: 2vw;
+    height: 2vw;
     padding: 0.25vw;
     transition: all 0.3s;
     &:hover {
@@ -56,9 +57,22 @@
 }
 
 .grocery-list-item {
+    animation-name: slide-from-left;
+    animation-duration: 1.25s;
     display: flex;
+    padding: 1vw;
+    width: 45%;
+    border-radius: 6px;
+    align-items: center;
+    // background-color: rgba(254, 205, 69, 0.25);
+    background-color: rgba(0, 128, 0, 0.25);
+    backdrop-filter: blur(10px);
     gap: 1vw;
     padding: 1vh;
+    transition: all 0.3s;
+    &:hover {
+        background-color: rgba(0, 128, 0, 0.5);
+    }
 }
 
 .category-title {
@@ -80,5 +94,18 @@
 
     .add-item-input {
         width: 20vw;
+    }
+  }
+
+  @keyframes slide-from-left {
+    0% {
+        // transform: translateX(-10vw);
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
     }
   }

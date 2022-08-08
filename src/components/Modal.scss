@@ -5,9 +5,14 @@
     white-space: nowrap;
 }
 
-.modal-content-column {
-    white-space: initial;
-}
+// .modal-content-column {
+//     width: 50%;
+//     overflow-wrap: break-word;
+//     // white-space: initial;
+//     align-items: space-evenly;
+//     justify-content: space-evenly;
+//     overflow-y: auto;
+// }
 
 .modal {
     position: fixed;
@@ -19,7 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2;
+    z-index: 99;
 }
 
 .modal-content {
@@ -37,16 +42,13 @@
     box-shadow: 0px 0px 10px 2px;
     overflow-y: auto;
     flex-shrink: 1;
+    z-index: 99;
 }
 
 .modal-content-row {
     justify-content: space-evenly; 
     min-width: 55vw; 
     // min-height: 40vh;
-}
-
-.wrap-text {
-    width: 55vw;
 }
 
 .close-modal {
@@ -63,6 +65,125 @@
     transition: all 0.3s;
     &:hover {
         transform: translateY(-3px);
+        box-shadow: 0px 5px 3px 0px grey;
+    }
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0px 2px 3px 0px grey;
+    }
+}
+
+.save-button {
+    animation-name: open;
+    animation-duration: 0.5s;
+    border: none;
+    border-radius: 12px;
+    // background-color: rgb(0, 17, 90);
+    background-color: #FECD45;
+    // color: rgb(238, 219, 5);
+    color: #2568FB;
+    font-size: 20px;
+    cursor: pointer;
+    width: 15vw;
+    height: 3vw;
+    overflow: hidden;
+    transition: all 0.3s;
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0px 5px 3px 0px grey;
+    }
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0px 2px 3px 0px grey;
+    }
+}
+
+.save-button-hidden {
+   width: 0vw;
+   height: 0vw;
+   font-size: 0px;
+}
+
+.view-on {
+    border: solid;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    // background-color: rgb(0, 17, 90);
+    background: none;
+    // color: rgb(238, 219, 5);
+    color: #2568FB;
+    font-size: 10px;
+    cursor: pointer;
+    // width: 15vw;
+    // height: 3vw;
+    transition: all 0.3s;
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 5px 3px 0px grey;
+    }
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0px 2px 3px 0px grey;
+    }
+}
+
+.view-off {
+    border: none;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    background: #FECD45;
+    color: #2568FB;
+    font-size: 10px;
+    cursor: pointer;
+    // width: 15vw;
+    // height: 3vw;
+    transition: all 0.3s;
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 5px 3px 0px grey;
+    }
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0px 2px 3px 0px grey;
+    }
+}
+
+.edit-on {
+    border: solid;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    // background-color: rgb(0, 17, 90);
+    background: none;
+    // color: rgb(238, 219, 5);
+    color: #2568FB;
+    font-size: 10px;
+    cursor: pointer;
+    // width: 15vw;
+    // height: 3vw;
+    transition: all 0.3s;
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 5px 3px 0px grey;
+    }
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0px 2px 3px 0px grey;
+    }
+}
+
+.edit-off {
+    border: none;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    background: #FECD45;
+    color: #2568FB;
+    font-size: 10px;
+    cursor: pointer;
+    // width: 15vw;
+    // height: 3vw;
+    transition: all 0.3s;
+    &:hover {
+        transform: translateY(-2px);
         box-shadow: 0px 5px 3px 0px grey;
     }
     &:active {
@@ -100,11 +221,16 @@
 
     .modal-content-column {
         align-items: center;
+        white-space: initial;
     }
 
     .close-modal {
         height: auto;
         padding: 0.5vw;
+    }
+
+    #instructions {
+        white-space: initial;
     }
 }
 
@@ -115,5 +241,16 @@
 
     100% {
         transform: translateY(0vw);
+    }
+}
+
+@keyframes open {
+    0% {
+        width: 1vw;
+        border-radius: 12px;
+    }
+
+    100% {
+        width: 15vw;
     }
 }

@@ -61,9 +61,11 @@ export default function GroceryListCat(props) {
 
     async function removeItems(id) {
         const addItemRef = doc(db, "Users", currentUser.uid);
+        console.log(addItemRef);
         const newList = items.filter((item) => item != id);
+        console.log(newList);
         await updateDoc(addItemRef, {
-           ["GroceryList"+category]: newList
+           ["GroceryList."+category]: newList
         });
         setValue(newList);
     }
@@ -80,7 +82,7 @@ export default function GroceryListCat(props) {
                 placeholder="Add an item" className="add-item-input"></input>
                 <button onClick={() => addItem()} className="add-item-button">Add Item</button>
             </div>
-            <ul style={{borderLeft: "solid 5px", borderTopLeftRadius: "6px", borderBottomLeftRadius: "6px"}}>{categoryItems}</ul>
+            <ul style={{display: "flex", flexDirection: "column", gap: "1vw", borderLeft: "solid 5px", borderTopLeftRadius: "6px", borderBottomLeftRadius: "6px", overflow: "hidden"}}>{categoryItems}</ul>
         </div>
     );
 }
