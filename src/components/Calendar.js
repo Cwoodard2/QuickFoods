@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Calendar.scss";
+import CalendarCategory from "./CalendarCategory";
 
 export default function Calendar(props) {
     const [details, setDetails] = useState("details-hidden");
@@ -47,7 +48,7 @@ export default function Calendar(props) {
         <div>
             <div className="calendar-day">
                 {/* <h3>{dayOfWeek}</h3> */}
-                <h4>Breakfast</h4>
+                {/* <h4>Breakfast</h4>
                 <div onClick={() => showDetails()} className={recipeShow}>
                     <p>{recipe.Name}</p>
                     <div className={details}>
@@ -55,11 +56,14 @@ export default function Calendar(props) {
                         <p>{recipe.Cook}</p>
                     </div>
                 </div>
-                <button onClick={() => addRecipe("breakfast")} className="recipe-button">Add a recipe</button>
-                <h4>Lunch</h4>
-                <button onClick={() => addRecipe("lunch")} className="recipe-button">Add a recipe</button>
-                <h4>Dinner</h4>
-                <button onClick={() => addRecipe("dinner")} className="recipe-button">Add a recipe</button>
+                <button onClick={() => addRecipe("breakfast")} className="recipe-button">Add a recipe</button> */}
+                <CalendarCategory category="Breakfast"/>
+                {/* <h4>Lunch</h4>
+                <button onClick={() => addRecipe("lunch")} className="recipe-button">Add a recipe</button> */}
+                <CalendarCategory category="Lunch"/>
+                {/* <h4>Dinner</h4>
+                <button onClick={() => addRecipe("dinner")} className="recipe-button">Add a recipe</button> */}
+                <CalendarCategory category="Dinner"/>
             </div>
         </div>
     )
