@@ -38,7 +38,9 @@ export default function Homepage() {
             if (docSnap.exists()) {
                 console.log("document found");
                 const newData = docSnap.data();
-                fillUserData(newData.BreakfastRecipes, newData.DinnerRecipes, newData.Bread, newData.Dairy, newData.Fruit, newData.Protein, newData.Random, newData.Snacks, newData.Vegetables, newData.LunchRecipes, newData.SnackRecipes);
+                console.log(newData);
+                fillUserData(newData.BreakfastRecipes, newData.DinnerRecipes, newData.GroceryList.Bread, newData.GroceryList.Dairy, newData.GroceryList.Fruit, newData.GroceryList.Protein, newData.GroceryList.Random, newData.GroceryList.Snacks, newData.GroceryList.Vegetables, newData.LunchRecipes, newData.SnackRecipes);
+                console.log(data);
                 switch(mealSuggestions) {
                     case "Breakfast":
                         const whichRecipe1 = 0;

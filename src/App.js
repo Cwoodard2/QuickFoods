@@ -12,7 +12,7 @@ import UserProvider from './database/userContext';
 function App() {
   return (
     <AuthProvider>
-    {/* <UserProvider> */}
+    <UserProvider>
     <HashRouter>
         <Routes>
           <Route path="/" element={<Login/>}></Route>
@@ -22,7 +22,7 @@ function App() {
           <Route path="/calender" element={<Calendar/>}/>
         </Routes>
       </HashRouter>
-      {/* </UserProvider> */}
+      </UserProvider>
       </AuthProvider>
   );
 }

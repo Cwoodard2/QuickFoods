@@ -2,6 +2,7 @@ import { doc, updateDoc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { useAuth } from "../database/authContext";
 import React, { useEffect, useState } from "react";
+import { useUser } from "../database/userContext";
 import { fillArray } from "../database/firebaseInterface";
 import "./GroceryListCat.scss";
 
@@ -9,33 +10,35 @@ export default function GroceryListCat(props) {
     var category = props.whichCat;
     const [items, setValue] = useState([]);
     const {currentUser} = useAuth();
+    const { data, fillUserData } = useUser();
 
     useEffect(() => {
         const fetchData = async () => {
           const docRef = doc(db, "Users", currentUser.uid);
           const docSnap = await getDoc(docRef);
           const list = docSnap.data();
+          console.log(data);
         switch(category) {
         case "Dairy":
-            setValue(list.GroceryList.Dairy);
+            setValue(data.GroceryList.Dairy);
             break;
         case "Vegetables":
-            setValue(list.GroceryList.Vegetables);
+            setValue(data.GroceryList.Vegetables);
             break;
         case "Fruit":
-            setValue(list.GroceryList.Fruit);
+            setValue(data.GroceryList.Fruit);
             break;
         case "Snacks":
-            setValue(list.GroceryList.Snacks);
+            setValue(data.GroceryList.Snacks);
             break;
         case "Bread":
-            setValue(list.GroceryList.Bread);
+            setValue(data.GroceryList.Bread);
             break;
         case "Protein":
-            setValue(list.GroceryList.Protein);
+            setValue(data.GroceryList.Protein);
             break;
         case "Random":
-            setValue(list.GroceryList.Random);
+            setValue(data.GroceryList.Random);
             break;
         default:
             break;
