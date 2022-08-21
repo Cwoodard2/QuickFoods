@@ -8,10 +8,11 @@ import RecipeCard from "./RecipeCard";
 export default function CalendarCategory(props) {
     const [details, setDetails] = useState("details-hidden");
     const [recipeShow, setRecipeShow] = useState("");
-    const [recipeSet, setRecipeSet] = useState(false);
+    const [recipeSet, setRecipeSet] = useState(true);
     const [recipeToShow, setRecipeToShow] = useState('');
     const [buttonShow, setButtonShow] = useState("recipe-button");
     const [recipes, setRecipes] = useState([]);
+    const [allRecipes, setAllRecipes] = useState([]);
     const {currentUser} = useAuth();
 
     var recipe = {
@@ -21,15 +22,32 @@ export default function CalendarCategory(props) {
     }
 
     useEffect(() => {
-        // const fectchData = async () => {
-        // console.log("data here");
-        // const docRef = doc(db, "Users", currentUser.uid);
-        // const docSnap = await getDoc(docRef);
-        // const docData = docSnap.data();
-        // const breakfastRecipes = docData.BreakfastRecipes;
-        // console.log(breakfastRecipes);
-        // setRecipes(breakfastRecipes.map((recipe) => <option>{recipe.Name}</option>));
-        // }
+        const fectchData = async () => {
+        if (props.category === "Breakfast") {
+            var recipeToGet = "BreakfastRecipes";
+        }
+
+        if (props.category === "Lunch") {
+            var recipeToGet = "LunchRecipes";
+        }
+
+        if (props.category === "Dinner") {
+            var recipeToGet = "DinnerRecipes";
+        }
+
+        console.log("data here");
+        const docRef = doc(db, "Users", currentUser.uid);
+        const docSnap = await getDoc(docRef);
+        const docData = docSnap.data();
+        const breakfastRecipes = docData[recipeToGet];
+        setAllRecipes(breakfastRecipes);
+        setRecipes(breakfastRecipes.map((recipe, index) => <option id={index} value={recipe.Name}>{recipe.Name}</option>));
+        if (!recipeSet) {
+            setRecipeShow("calendar-item-hidden");
+        } else {
+            setRecipeShow("calendar-item");
+        }
+    }
 
         const isRecipeSet = () => {
             if (!recipeSet) {
@@ -39,8 +57,8 @@ export default function CalendarCategory(props) {
             }
         }
 
-        isRecipeSet();
-        // fectchData();
+        // isRecipeSet();
+        fectchData();
     }, []
     );
 
@@ -61,7 +79,18 @@ export default function CalendarCategory(props) {
 
     const addRecipe = (whichMeal) => {
         setButtonShow("recipe-button-hidden");
-        setRecipeToShow(<RecipeCard recipe="Toast" prepTime="0 min" cook="10 min" content="It is toast" instructions="put in toaster" prep={['bread']} attributes={[]}/>)
+        console.log(allRecipes[0]);
+        console.log(document.getElementById('recipe-select').value == allRecipes[0].Name);
+        for(var i=0; i < allRecipes.length; i++) {
+            console.log(document.getElementById('recipe-select').value);
+            console.log(allRecipes[0].Name);
+            if (document.getElementById('recipe-select').value == allRecipes[i].Name) {
+                console.log("made it here");
+                setRecipeToShow(<RecipeCard recipe={allRecipes[i].Name} prepTime={allRecipes[i].PrepTime} cook={allRecipes[i].CookTime} content={allRecipes[i].description} instructions={allRecipes[i].cook} prep={allRecipes[i].prep} attributes={allRecipes[i].attributes}/>);
+                break;
+            }
+        }
+        // setRecipeToShow(<RecipeCard recipe="Toast" prepTime="0 min" cook="10 min" content="It is toast" instructions="put in toaster" prep={['bread']} attributes={[]}/>)
         setRecipeShow("calendar-item");
         setRecipeSet(true);
         return "this is a word";
@@ -74,6 +103,9 @@ export default function CalendarCategory(props) {
                     {recipes}
                 </select> */}
                 <div onClick={() => showDetails()} className={recipeShow}>
+                    <select id="recipe-select" name="recipe-select">
+                        {recipes}
+                    </select>
                 <button className="delete-button" onClick={() => deleteRecipe()}>X</button>
                     {/* <p>{recipe.Name} <button className="delete-button" onClick={() => deleteRecipe()}>X</button></p>
                     <div className={details}>
@@ -82,7 +114,7 @@ export default function CalendarCategory(props) {
                     </div> */}
                     {recipeToShow}
                 </div>
-                <button onClick={() => addRecipe(props.category)} className={buttonShow}>Add a recipe</button>
+                <button id="add-button" onClick={() => addRecipe(props.category)} className={buttonShow}>Add a recipe</button>
         </div>
     )
 }
