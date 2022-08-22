@@ -18,7 +18,7 @@ export default function Calender() {
                     <h3>Saturday</h3>
                 </div>
                 <div className="row" style={{flexWrap: "wrap"}}>
-                <Calendar day="Sunady"/>
+                <Calendar day="Sunday"/>
                 <Calendar day="Monday"/>
                 <Calendar day="Tuesday"/>
                 <Calendar day="Wednesday"/>

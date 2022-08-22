@@ -14,12 +14,7 @@ export default function CalendarCategory(props) {
     const [recipes, setRecipes] = useState([]);
     const [allRecipes, setAllRecipes] = useState([]);
     const {currentUser} = useAuth();
-
-    var recipe = {
-        Name: "Placeholder",
-        Prep: "1 min",
-        Cook: "2 min"
-    }
+    const selectID = "recipe-select-" + props.category + "-" + props.day; 
 
     useEffect(() => {
         const fectchData = async () => {
@@ -35,13 +30,12 @@ export default function CalendarCategory(props) {
             var recipeToGet = "DinnerRecipes";
         }
 
-        console.log("data here");
         const docRef = doc(db, "Users", currentUser.uid);
         const docSnap = await getDoc(docRef);
         const docData = docSnap.data();
-        const breakfastRecipes = docData[recipeToGet];
-        setAllRecipes(breakfastRecipes);
-        setRecipes(breakfastRecipes.map((recipe, index) => <option id={index} value={recipe.Name}>{recipe.Name}</option>));
+        const loadRecipes = docData[recipeToGet];
+        setAllRecipes(loadRecipes);
+        setRecipes(loadRecipes.map((recipe, index) => <option id={index} value={recipe.Name}>{recipe.Name}</option>));
         if (!recipeSet) {
             setRecipeShow("calendar-item-hidden");
         } else {
@@ -49,15 +43,6 @@ export default function CalendarCategory(props) {
         }
     }
 
-        const isRecipeSet = () => {
-            if (!recipeSet) {
-                setRecipeShow("calendar-item-hidden");
-            } else {
-                setRecipeShow("calendar-item");
-            }
-        }
-
-        // isRecipeSet();
         fectchData();
     }, []
     );
@@ -79,18 +64,12 @@ export default function CalendarCategory(props) {
 
     const addRecipe = (whichMeal) => {
         setButtonShow("recipe-button-hidden");
-        console.log(allRecipes[0]);
-        console.log(document.getElementById('recipe-select').value == allRecipes[0].Name);
         for(var i=0; i < allRecipes.length; i++) {
-            console.log(document.getElementById('recipe-select').value);
-            console.log(allRecipes[0].Name);
-            if (document.getElementById('recipe-select').value == allRecipes[i].Name) {
-                console.log("made it here");
+            if (document.getElementById(selectID).value == allRecipes[i].Name) {
                 setRecipeToShow(<RecipeCard recipe={allRecipes[i].Name} prepTime={allRecipes[i].PrepTime} cook={allRecipes[i].CookTime} content={allRecipes[i].description} instructions={allRecipes[i].cook} prep={allRecipes[i].prep} attributes={allRecipes[i].attributes}/>);
                 break;
             }
         }
-        // setRecipeToShow(<RecipeCard recipe="Toast" prepTime="0 min" cook="10 min" content="It is toast" instructions="put in toaster" prep={['bread']} attributes={[]}/>)
         setRecipeShow("calendar-item");
         setRecipeSet(true);
         return "this is a word";
@@ -99,19 +78,11 @@ export default function CalendarCategory(props) {
     return(
         <div>
             <h4>{props.category}</h4>
-                {/* <select>
-                    {recipes}
-                </select> */}
                 <div onClick={() => showDetails()} className={recipeShow}>
-                    <select id="recipe-select" name="recipe-select">
+                    <select id={selectID} name={selectID}>
                         {recipes}
                     </select>
                 <button className="delete-button" onClick={() => deleteRecipe()}>X</button>
-                    {/* <p>{recipe.Name} <button className="delete-button" onClick={() => deleteRecipe()}>X</button></p>
-                    <div className={details}>
-                        <p>{recipe.Prep}</p>
-                        <p>{recipe.Cook}</p>
-                    </div> */}
                     {recipeToShow}
                 </div>
                 <button id="add-button" onClick={() => addRecipe(props.category)} className={buttonShow}>Add a recipe</button>

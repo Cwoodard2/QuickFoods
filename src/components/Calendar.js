@@ -57,13 +57,13 @@ export default function Calendar(props) {
                     </div>
                 </div>
                 <button onClick={() => addRecipe("breakfast")} className="recipe-button">Add a recipe</button> */}
-                <CalendarCategory category="Breakfast"/>
+                <CalendarCategory category="Breakfast" day={props.day}/>
                 {/* <h4>Lunch</h4>
                 <button onClick={() => addRecipe("lunch")} className="recipe-button">Add a recipe</button> */}
-                <CalendarCategory category="Lunch"/>
+                <CalendarCategory category="Lunch" day={props.day}/>
                 {/* <h4>Dinner</h4>
                 <button onClick={() => addRecipe("dinner")} className="recipe-button">Add a recipe</button> */}
-                <CalendarCategory category="Dinner"/>
+                <CalendarCategory category="Dinner" day={props.day}/>
             </div>
         </div>
     )
