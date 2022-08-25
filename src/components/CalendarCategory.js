@@ -3,7 +3,7 @@ import { db } from "../firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useAuth } from "../database/authContext";
 import "./CalendarCategory.scss";
-import RecipeCard from "./RecipeCard";
+import RecipeCardCompact from "./RecipeCardCompact";
 
 export default function CalendarCategory(props) {
     const [details, setDetails] = useState("details-hidden");
@@ -40,7 +40,7 @@ export default function CalendarCategory(props) {
         if (docData[props.day][props.category][0]) {
             var recipeToUse = docData[props.day][props.category][1];
             console.log(recipeToUse);
-            setRecipeToShow(<RecipeCard recipe={recipeToUse.Name} prepTime={recipeToUse.PrepTime} cook={recipeToUse.CookTime} content={recipeToUse.Description} instructions={recipeToUse.Cook} prep={recipeToUse.Prep} attributes={recipeToUse.Attributes}/>);
+            setRecipeToShow(<RecipeCardCompact recipe={recipeToUse.Name} prepTime={recipeToUse.PrepTime} cook={recipeToUse.CookTime} content={recipeToUse.Description} instructions={recipeToUse.Cook} prep={recipeToUse.Prep} attributes={recipeToUse.Attributes}/>);
             setRecipeSet(false);
         }
 
@@ -84,7 +84,7 @@ export default function CalendarCategory(props) {
                     [props.day + "." + props.category]: newList
                 });
 
-                setRecipeToShow(<RecipeCard recipe={allRecipes[i].Name} prepTime={allRecipes[i].PrepTime} cook={allRecipes[i].CookTime} content={allRecipes[i].description} instructions={allRecipes[i].cook} prep={allRecipes[i].prep} attributes={allRecipes[i].attributes}/>);
+                setRecipeToShow(<RecipeCardCompact recipe={allRecipes[i].Name} prepTime={allRecipes[i].PrepTime} cook={allRecipes[i].CookTime} content={allRecipes[i].description} instructions={allRecipes[i].cook} prep={allRecipes[i].prep} attributes={allRecipes[i].attributes}/>);
                 break;
             }
         }
