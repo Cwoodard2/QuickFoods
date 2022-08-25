@@ -12,6 +12,7 @@ export default function Modal(props) {
     const [showSave, setShowSave] = useState("save-button-hidden");
 
     const {currentUser} = useAuth();
+    console.log(props);
 
     if (!props.show) {
         return null;

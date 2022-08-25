@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { db } from "../firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useAuth } from "../database/authContext";
 import "./CalendarCategory.scss";
 import RecipeCard from "./RecipeCard";
@@ -34,6 +34,17 @@ export default function CalendarCategory(props) {
         const docSnap = await getDoc(docRef);
         const docData = docSnap.data();
         const loadRecipes = docData[recipeToGet];
+        console.log(loadRecipes);
+
+        //Stuff to load a day from database
+        if (docData[props.day][props.category][0]) {
+            var recipeToUse = docData[props.day][props.category][1];
+            console.log(recipeToUse);
+            setRecipeToShow(<RecipeCard recipe={recipeToUse.Name} prepTime={recipeToUse.PrepTime} cook={recipeToUse.CookTime} content={recipeToUse.Description} instructions={recipeToUse.Cook} prep={recipeToUse.Prep} attributes={recipeToUse.Attributes}/>);
+            setRecipeSet(false);
+        }
+
+
         setAllRecipes(loadRecipes);
         setRecipes(loadRecipes.map((recipe, index) => <option id={index} value={recipe.Name}>{recipe.Name}</option>));
         if (!recipeSet) {
@@ -62,10 +73,17 @@ export default function CalendarCategory(props) {
         }
     }
 
-    const addRecipe = (whichMeal) => {
+    const addRecipe = async (whichMeal) => {
         setButtonShow("recipe-button-hidden");
         for(var i=0; i < allRecipes.length; i++) {
+            //putting in logic for database to save state
             if (document.getElementById(selectID).value == allRecipes[i].Name) {
+                const addItemRef = doc(db, "Users", currentUser.uid);
+                const newList = [true, allRecipes[i]];
+                await updateDoc(addItemRef, {
+                    [props.day + "." + props.category]: newList
+                });
+
                 setRecipeToShow(<RecipeCard recipe={allRecipes[i].Name} prepTime={allRecipes[i].PrepTime} cook={allRecipes[i].CookTime} content={allRecipes[i].description} instructions={allRecipes[i].cook} prep={allRecipes[i].prep} attributes={allRecipes[i].attributes}/>);
                 break;
             }
