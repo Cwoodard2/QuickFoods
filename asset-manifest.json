@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/QuickFoods/static/css/main.39ec6085.css",
-    "main.js": "/QuickFoods/static/js/main.2524345b.js",
+    "main.css": "/QuickFoods/static/css/main.fb1b7ed3.css",
+    "main.js": "/QuickFoods/static/js/main.4e71735c.js",
     "static/js/787.29eca7e8.chunk.js": "/QuickFoods/static/js/787.29eca7e8.chunk.js",
+    "static/media/quickfoods-new-logo.png": "/QuickFoods/static/media/quickfoods-new-logo.7b1a223cc16e43768520.png",
+    "static/media/MangabeyRegular-rgqVO.otf": "/QuickFoods/static/media/MangabeyRegular-rgqVO.4ad456bc4957febdf9a5.otf",
     "index.html": "/QuickFoods/index.html",
-    "main.39ec6085.css.map": "/QuickFoods/static/css/main.39ec6085.css.map",
-    "main.2524345b.js.map": "/QuickFoods/static/js/main.2524345b.js.map",
+    "main.fb1b7ed3.css.map": "/QuickFoods/static/css/main.fb1b7ed3.css.map",
+    "main.4e71735c.js.map": "/QuickFoods/static/js/main.4e71735c.js.map",
     "787.29eca7e8.chunk.js.map": "/QuickFoods/static/js/787.29eca7e8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.39ec6085.css",
-    "static/js/main.2524345b.js"
+    "static/css/main.fb1b7ed3.css",
+    "static/js/main.4e71735c.js"
   ]
 }
