@@ -67,7 +67,42 @@ export default function Homepage() {
                         Vegetables: []
                     },
                     LunchRecipes: [],
-                    SnackRecipes: []
+                    SnackRecipes: [],
+                    Sunday: {
+                        Breakfast: [false, {}],
+                        Lunch: [false, {}],
+                        Dinner: [false, {}]
+                    },
+                    Monday: {
+                        Breakfast: [false, {}],
+                        Lunch: [false, {}],
+                        Dinner: [false, {}]
+                    },
+                    Tuesday: {
+                        Breakfast: [false, {}],
+                        Lunch: [false, {}],
+                        Dinner: [false, {}]
+                    },
+                    Wednesday: {
+                        Breakfast: [false, {}],
+                        Lunch: [false, {}],
+                        Dinner: [false, {}]
+                    },
+                    Thursday: {
+                        Breakfast: [false, {}],
+                        Lunch: [false, {}],
+                        Dinner: [false, {}]
+                    },
+                    Friday: {
+                        Breakfast: [false, {}],
+                        Lunch: [false, {}],
+                        Dinner: [false, {}]
+                    },
+                    Saturday: {
+                        Breakfast: [false, {}],
+                        Lunch: [false, {}],
+                        Dinner: [false, {}]
+                    }
                 });
             }
         }

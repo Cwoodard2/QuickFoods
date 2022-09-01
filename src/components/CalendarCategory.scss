@@ -1,0 +1,29 @@
+.details {
+    display: block;
+}
+
+.details-hidden {
+    display: none;
+}
+
+.recipe-button {
+    width: 7vw;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 2px 3px 0px;
+}
+
+.calendar-item {
+    background-color: rgba(0, 255, 255, 1);
+    margin: 0.25vw;
+    border-radius: 6px;
+}
+
+.calendar-item-hidden {
+    display: none;
+}
+
+.recipe-button-hidden {
+    display: none;
+}

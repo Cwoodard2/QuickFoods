@@ -5,6 +5,7 @@
     border-radius: 3px;
     transition: border-bottom-color 0.5s transform 0.5s;
     text-align: center;
+    transition: all 0.3s;
     &:focus {
         border-top: 0ch;
         border-left: 0ch;

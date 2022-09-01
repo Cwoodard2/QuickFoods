@@ -8,16 +8,13 @@ import "./RecipeCard.scss";
 export default function RecipeCard(props) {
     const [showModal, setView] = useState(false);
     const {currentUser} = useAuth();
+    console.log(props);
 
     const removeRecipe = async () => {
         var meal;
         const docRef = doc(db, "Users", currentUser.uid);
         const docSnap = await getDoc(docRef);
         const docData = docSnap.data();
-        console.log(docData.BreakfastRecipes);
-        console.log(props.recipe);
-        console.log("space");
-        console.log(docData.BreakfastRecipes[0].Name);
         switch("breakfast") {
             case "breakfast":
                 meal = "BreakfastRecipes";
