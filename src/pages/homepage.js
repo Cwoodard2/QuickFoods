@@ -10,6 +10,8 @@ import "./homepage.scss"
 export default function Homepage() {
     const [mainRecipe1, setRecipe1] = useState();
     const [mainRecipe2, setRecipe2] = useState();
+    const [currentDay, setCurrentDay] = useState("Monday");
+    const [plannedMeals, setPlannedMeals] = useState({});
     var date = new Date();
     var currentTime = date.getHours();
     var mealSuggestions;
@@ -35,11 +37,12 @@ export default function Homepage() {
             const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
                 console.log("document found");
+                const data = docSnap.data();
+                console.log(data);
+                setPlannedMeals(data[currentDay]);
                 switch(mealSuggestions) {
                     case "Breakfast":
-                        const data = docSnap.data();
                         const whichRecipe1 = 0;
-                        console.log("This is recipe 1" + whichRecipe1);
                         const whichRecipe2 = 0;
                         setRecipe1(data.BreakfastRecipes[whichRecipe1]);
                         setRecipe2(data.BreakfastRecipes[whichRecipe2]);
@@ -110,7 +113,7 @@ export default function Homepage() {
         checkForDoc();
     }, []);
 
-
+console.log(plannedMeals);
     return (
         <StandardPage>
             <Navigation />
