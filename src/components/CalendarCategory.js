@@ -14,7 +14,8 @@ export default function CalendarCategory(props) {
     const [recipes, setRecipes] = useState([]);
     const [allRecipes, setAllRecipes] = useState([]);
     const {currentUser} = useAuth();
-    const selectID = "recipe-select-" + props.category + "-" + props.day; 
+    const selectID = "recipe-select-" + props.category + "-" + props.day;
+    const deleteButtonID =  "delete-button-" + props.category + "-" + props.day;
 
     useEffect(() => {
         const fectchData = async () => {
@@ -58,8 +59,13 @@ export default function CalendarCategory(props) {
     }, []
     );
 
-    const deleteRecipe = () => {
+    const deleteRecipe = async () => {
         // setRecipeShow("calendar-item-hidden");
+        const addItemRef = doc(db, "Users", currentUser.uid);
+        const newList = [false, {}];
+        await updateDoc(addItemRef, {
+            [props.day + "." + props.category]: newList
+        });
         setButtonShow("recipe-button");
         setRecipeToShow("");
         setRecipeSet(false);
@@ -90,17 +96,16 @@ export default function CalendarCategory(props) {
         }
         setRecipeShow("calendar-item");
         setRecipeSet(true);
-        return "this is a word";
     }
 
     return(
         <div>
             <h4>{props.category}</h4>
-                <div onClick={() => showDetails()} className={recipeShow}>
-                    <select id={selectID} name={selectID}>
+            <select id={selectID} name={selectID}>
                         {recipes}
                     </select>
-                <button className="delete-button" onClick={() => deleteRecipe()}>X</button>
+                    <button id={deleteButtonID} className="delete-button" onClick={() => deleteRecipe()}>X</button>
+                <div onClick={() => showDetails()} className={recipeShow}>
                     {recipeToShow}
                 </div>
                 <button id="add-button" onClick={() => addRecipe(props.category)} className={buttonShow}>Add a recipe</button>
