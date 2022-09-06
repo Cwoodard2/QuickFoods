@@ -9,14 +9,14 @@ export default function Calender() {
         <StandardPage>
             <Navigation />
             <div className="column">
-                <div className="row" style={{justifyContent: "space-evenly"}}>
-                    <h3 className="day-of-week">Sunday</h3>
-                    <h3 className="day-of-week-off">Monday</h3>
-                    <h3 className="day-of-week-off">Tuesday</h3>
-                    <h3 className="day-of-week-off">Wednesday</h3>
-                    <h3 className="day-of-week-off">Thursday</h3>
-                    <h3 className="day-of-week-off">Friday</h3>
-                    <h3 className="day-of-week-off">Saturday</h3>
+                <div className="row" style={{justifyContent: "space-evenly", border: "solid black", borderRadius: "6px"}}>
+                    <h2 className="day-of-week">Sunday</h2>
+                    <h2 className="day-of-week-off">Monday</h2>
+                    <h2 className="day-of-week-off">Tuesday</h2>
+                    <h2 className="day-of-week-off">Wednesday</h2>
+                    <h2 className="day-of-week-off">Thursday</h2>
+                    <h2 className="day-of-week-off">Friday</h2>
+                    <h2 className="day-of-week-off">Saturday</h2>
                 </div>
                 <div className="row" style={{flexWrap: "wrap", justifyContent: "center"}}>
                 <Calendar day="Sunday"/>
