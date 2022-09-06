@@ -8,7 +8,6 @@ import "./RecipeCard.scss";
 export default function RecipeCard(props) {
     const [showModal, setView] = useState(false);
     const {currentUser} = useAuth();
-    console.log(props);
 
     const removeRecipe = async () => {
         var meal;

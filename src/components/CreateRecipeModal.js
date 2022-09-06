@@ -44,6 +44,18 @@ export default function CreateRecipeModal(props) {
         setIngredients(newList);
     }
 
+    const cleanData = (dataToClean) => {
+        console.log("in clean");
+        for (let key in dataToClean) {
+            let value = dataToClean[key];
+            console.log(value);
+            if (value == "") {
+                return false;
+            }
+            console.log(key, value);
+          }
+    }
+
 
     async function WriteDataToDB() {
         var recipe;
@@ -67,7 +79,13 @@ export default function CreateRecipeModal(props) {
             Attributes: attributes
         }
 
-        console.log(recipeData);
+        console.log(cleanData(recipeData));
+        if(!cleanData(recipeData)) {
+            console.log("unclean data");
+            alert("Some fields had data input incorrectly or were left blank. Please try again.");
+            return;
+        }
+
         const jerryRefDoc = doc(db, "Users", currentUser.uid);
 
         switch(document.getElementById("whichRecipe").value) {

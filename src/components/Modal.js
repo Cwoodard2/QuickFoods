@@ -12,7 +12,6 @@ export default function Modal(props) {
     const [showSave, setShowSave] = useState("save-button-hidden");
 
     const {currentUser} = useAuth();
-    console.log(props);
 
     if (!props.show) {
         return null;
@@ -23,9 +22,10 @@ export default function Modal(props) {
         const docSnap = await getDoc(docRef);
         const docData = docSnap.data();
         const recipeData = docData.BreakfastRecipes;
-        for (var i = 0; i < docData.data(); i++) {
+        for (var i = 0; i < recipeData.length; i++) {
             if (recipeData[i].Name == props.title) {
-                //save data
+                console.log(document.getElementById("instructions").innerHTML);
+                console.log("Button Click Works");
                 break;
             }
         }
