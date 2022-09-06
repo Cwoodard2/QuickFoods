@@ -5,6 +5,7 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 import Navigation from "../components/Navigation";
 import StandardPage from "../components/StandardPage";
 import RecipeCard from "../components/RecipeCard";
+import RecipeCardCompact from "../components/RecipeCardCompact";
 import "./homepage.scss"
 
 export default function Homepage() {
@@ -36,10 +37,12 @@ export default function Homepage() {
             const docRef = doc(db, "Users", currentUser.uid);
             const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
-                console.log("document found");
-                const data = docSnap.data();
+                var data = docSnap.data();
                 console.log(data);
-                setPlannedMeals(data[currentDay]);
+                var monday = data.Monday;
+                console.log(monday);
+                console.log(monday.Breakfast[1]);
+                setPlannedMeals(monday);
                 switch(mealSuggestions) {
                     case "Breakfast":
                         const whichRecipe1 = 0;
@@ -113,6 +116,9 @@ export default function Homepage() {
         checkForDoc();
     }, []);
 
+    var planBreakfast = plannedMeals.Breakfast;
+    var planLunch = plannedMeals.Lunch;
+    var planDinner = plannedMeals.Dinner;
 console.log(plannedMeals);
     return (
         <StandardPage>
@@ -125,6 +131,7 @@ console.log(plannedMeals);
                     <div>
                         <div>
                             Plan for the day
+                            {/* <RecipeCardCompact recipe={planBreakfast.Name} prepTime={planBreakfast.PrepTime} cook={planBreakfast.CookTime} content={planBreakfast.Description} instructions={planBreakfast.Cook} prep={planBreakfast.Prep} attributes={planBreakfast.Attributes}/> */}
                         </div>
                     </div>
                     <div className="recipe-cards">
