@@ -46,14 +46,17 @@ export default function CreateRecipeModal(props) {
 
     const cleanData = (dataToClean) => {
         console.log("in clean");
-        for (let key in dataToClean) {
-            let value = dataToClean[key];
-            console.log(value);
-            if (value == "") {
-                return false;
-            }
-            console.log(key, value);
-          }
+        // for (let key in dataToClean) {
+        //     let value = dataToClean[key];
+        //     console.log(value);
+        //     if (key != "Prep" && key != "Attributes") {
+        //         if (value == "") {
+        //             return false;
+        //         }
+        //         console.log(key, value);
+        //     }
+        //   }
+        return true;
     }
 
 
