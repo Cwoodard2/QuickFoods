@@ -21,15 +21,15 @@ export default function CreateRecipeModal(props) {
             case "step1":
                 setStep1("show-column");
                 setStep2("no-show-column");
-                setStep3("no-show-column")
+                setStep3("no-show-column");
                 break;
             case "step2":
                 setStep1("no-show-column");
                 setStep2("show-column");
-                setStep3("no-show-column")
+                setStep3("no-show-column");
                 break;
             case "step3":
-                setStep1("no-show-column")
+                setStep1("no-show-column");
                 setStep2("no-show-column");
                 setStep3("show-column");
                 break;
@@ -73,6 +73,7 @@ export default function CreateRecipeModal(props) {
         }
         
         var recipeData = {
+            Meal: document.getElementById("whichRecipe").value,
             Name: document.getElementById("recipeName").value,
             PrepTime: document.getElementById("prepTime").value,
             CookTime: document.getElementById("cookTime").value,
@@ -90,29 +91,37 @@ export default function CreateRecipeModal(props) {
         }
 
         const jerryRefDoc = doc(db, "Users", currentUser.uid);
+        await updateDoc(jerryRefDoc, {
+            Recipes: arrayUnion(recipeData)
+        });
 
-        switch(document.getElementById("whichRecipe").value) {
-            case "Breakfast":
-                recipe = "BreakfastRecipes";
-                await updateDoc(jerryRefDoc, {
-                    BreakfastRecipes: arrayUnion(recipeData)
-                });
-                break;
-            case "Lunch":
-                recipe = "LunchRecipes";
-                await updateDoc(jerryRefDoc, {
-                    LunchRecipes: arrayUnion(recipeData)
-                });
-                break;
-            case "Dinner":
-                recipe = "DinnerRecipes";
-                await updateDoc(jerryRefDoc, {
-                    DinnerRecipes: arrayUnion(recipeData)
-                });
-                break;
-            default:
-                break;
-        };
+        setIngredients([]);
+        setStep1("show-column");
+        setStep2("no-show-column");
+        setStep3("no-show-column")
+
+        // switch(document.getElementById("whichRecipe").value) {
+        //     case "Breakfast":
+        //         recipe = "BreakfastRecipes";
+        //         await updateDoc(jerryRefDoc, {
+        //             BreakfastRecipes: arrayUnion(recipeData)
+        //         });
+        //         break;
+        //     case "Lunch":
+        //         recipe = "LunchRecipes";
+        //         await updateDoc(jerryRefDoc, {
+        //             LunchRecipes: arrayUnion(recipeData)
+        //         });
+        //         break;
+        //     case "Dinner":
+        //         recipe = "DinnerRecipes";
+        //         await updateDoc(jerryRefDoc, {
+        //             DinnerRecipes: arrayUnion(recipeData)
+        //         });
+        //         break;
+        //     default:
+        //         break;
+        // };
 
 
         function newRecipeLoad() {

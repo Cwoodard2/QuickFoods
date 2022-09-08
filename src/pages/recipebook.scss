@@ -1,13 +1,10 @@
 .recipe-book-main {
     display: flex;
     flex-direction: column;
-    width: 90vw;
     min-height: 100vh;
     overflow-y: auto;
     margin-left: 2vw;
     margin-right: 2vw;
-    justify-content: space-evenly;
-    /* gap: 2vw; */
 }
 
 .add-button {

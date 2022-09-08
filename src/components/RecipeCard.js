@@ -14,19 +14,8 @@ export default function RecipeCard(props) {
         const docRef = doc(db, "Users", currentUser.uid);
         const docSnap = await getDoc(docRef);
         const docData = docSnap.data();
-        switch("breakfast") {
-            case "breakfast":
-                meal = "BreakfastRecipes";
-                break;
-            case "lunch":
-                break;
-            case "dinner":
-                break;
-            default:
-                break;
-        }
         await updateDoc(docRef, {
-            [meal]: docData.BreakfastRecipes.filter((recipe) => recipe.Name !== props.recipe)
+            Recipes: docData.Recipes.filter((recipe) => recipe.Name !== props.recipe)
         })
     }
 
