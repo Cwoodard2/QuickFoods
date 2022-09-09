@@ -140,8 +140,8 @@ console.log(plannedMeals);
                             <div className="recipe-suggestions column">
                                 {/* <RecipeCard recipe={mainRecipe1.Name} prepTime={mainRecipe1.PrepTime} cook={mainRecipe1.CookTime} content={mainRecipe1.Description} instructions={mainRecipe1.Cook} prep={mainRecipe1.Prep}/>
                                 <RecipeCard recipe={mainRecipe2.Name} prepTime={mainRecipe2.PrepTime} cook={mainRecipe2.CookTime} content={mainRecipe2.Description} instructions={mainRecipe2.Cook} prep={mainRecipe2.Prep}/> */}
-                                <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
-                                <RecipeCard recipe="recipe2" prep="5 min" cook="5min" content="This is recipe 2"/>
+                                {/* <RecipeCard recipe="recipe1" prep="0 min" cook="10min" content="This is recipe 1"/>
+                                <RecipeCard recipe="recipe2" prep="5 min" cook="5min" content="This is recipe 2"/> */}
                             </div>
                         </div>
                     </div>

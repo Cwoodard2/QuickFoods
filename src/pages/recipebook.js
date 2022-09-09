@@ -46,7 +46,7 @@ export default function RecipeBook(props) {
         const filterList = (filterCriteria) => {
             console.log(filterCriteria);
             const filterRecipes = recipes.filter((recipe) => recipe.Meal == filterCriteria);
-            const allRecipes = filterRecipes.map((recipes) => <li className="recipe-list"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep} attributes={recipes.Attributes}/></li>);
+            const allRecipes = filterRecipes.map((recipes) => <li className="recipe-list"><RecipeCard meal={recipes.Meal} recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep} attributes={recipes.Attributes}/></li>);
             console.log(allRecipes);
             setFinalRecipes(allRecipes);
         }

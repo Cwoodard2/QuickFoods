@@ -9,6 +9,12 @@ export default function RecipeCard(props) {
     const [showModal, setView] = useState(false);
     const {currentUser} = useAuth();
 
+    if (props.attributes.length == 0) {
+        var attributeArray = "None";
+    } else {
+        var attributeArray = props.attributes.map((attribute) => <li key={attribute} className="recipe-attribute">{attribute}</li>)
+    }
+
     const removeRecipe = async () => {
         var meal;
         const docRef = doc(db, "Users", currentUser.uid);
@@ -25,7 +31,11 @@ export default function RecipeCard(props) {
             <button className="remove-recipe-button" onClick={() => removeRecipe()}>X</button>
             <h2 className="recipe-name">Space For Picture!</h2>
             <div className="recipe-card-content">
-                <h3 className="recipe-name">{props.recipe}</h3>
+                <div>
+                    <h3 className="recipe-name">{props.recipe}</h3>
+                    {/* style={{border: "solid black 2px", borderRadius: "6px", padding: "0.25vw", borderColor: "yellow", backgroundColor: "beige", width: "8vw"}} */}
+                    <ul>{attributeArray}</ul>
+                </div>
                 <div>
                     <p className="recipe-times">Prep: {props.prepTime}<br></br><br></br>Cook: {props.cook}</p>
                 </div>
