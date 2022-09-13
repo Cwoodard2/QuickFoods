@@ -1,8 +1,10 @@
 .calendar-day {
+    animation-name: fade-in;
+    animation-duration: 1s;
     display: flex;
     flex-direction: column;
     height: auto;
-    width: 20vw;
+    width: 33vw;
     border: solid;
     // margin: 2vw;
     border-radius: 6px;
@@ -31,7 +33,7 @@
 }
 
 .calendar-item {
-    background-color: rgba(0, 255, 255, 1);
+    // background-color: rgba(0, 255, 255, 1);
     margin: 0.25vw;
     border-radius: 6px;
 }
@@ -43,5 +45,19 @@
 @media screen and (max-width: 500px){
     .calendar-day {
         width: 90vw;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        // transform: translateX(100vw);
+        transform: translateY(7px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+        // transform: translateX(0vw);
     }
 }

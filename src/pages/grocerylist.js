@@ -33,12 +33,6 @@ export default function GroceryList() {
                     <div className="grocery-list">
                         <GroceryListCat whichCat="Random" />
                     </div>
-                        {/* <GroceryListCat whichCat="Vegetables" />
-                        <GroceryListCat whichCat="Fruit" />
-                        <GroceryListCat whichCat="Snacks" />
-                        <GroceryListCat whichCat="Bread" />
-                        <GroceryListCat whichCat="Protein" />
-                        <GroceryListCat whichCat="Random" /> */}
                 </div>
             </div>
         </StandardPage>

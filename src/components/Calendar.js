@@ -6,6 +6,7 @@ export default function Calendar(props) {
     const [details, setDetails] = useState("details-hidden");
     const [recipeShow, setRecipeShow] = useState("");
     const [recipeSet, setRecipeSet] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
     var dayOfWeek = props.day;
     var date = new Date();
     var getDay = date.getDay();
@@ -42,6 +43,10 @@ export default function Calendar(props) {
         } else {
             setDetails("details-hidden");
         }
+    }
+
+    if (props.setDay != props.day) {
+        return;
     }
 
     return(

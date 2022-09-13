@@ -50,16 +50,7 @@ export default function RecipeBook(props) {
             console.log(allRecipes);
             setFinalRecipes(allRecipes);
         }
-
-        // function makeList2() {
-        //     const lunchTime = lunch.map((recipes) => <li className="recipe-list"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep} attributes={recipes.Attributes}/></li>);
-        //     return lunchTime;
-        // };
-
-        // function makeList3() {
-        //     const dinnerTime = dinner.map((recipes) => <li className="recipe-list"><RecipeCard recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep} attributes={recipes.Attributes}/></li>);
-        //     return dinnerTime;
-        // };
+        
         const recipeIntermediate = makeList();
         //setFinalRecipes(recipeIntermediate);
         // const thisLunch = makeList2();
@@ -84,21 +75,9 @@ export default function RecipeBook(props) {
                     <div className="column">
                         <h1 className="subtitle">All Recipes</h1>
                             <ul className="row" style={{gap: "0vw", paddingLeft: "2vw", paddingRight: "2vw", paddingTop: "1vw", paddingBottom: "2vw", justifyContent: "space-evenly", flexWrap: "wrap"}}>
-                                {finalRecipes}
+                                {recipeIntermediate}
                             </ul>
                     </div>
-                    {/* <div className="column">
-                        <h1 className="subtitle">Lunch Recipes</h1>
-                        <ul className="row" style={{gap: "5vw", paddingLeft: "2vw", paddingRight: "2vw", paddingTop: "1vw", paddingBottom: "2vw"}}>
-                            {thisLunch}
-                        </ul>
-                    </div>
-                    <div className="column">
-                        <h1 className="subtitle">Dinner Recipes</h1>
-                        <ul className="row" style={{gap: "5vw", paddingLeft: "2vw", paddingRight: "2vw", paddingTop: "1vw", paddingBottom: "2vw"}}>
-                            {thisDinner}
-                        </ul>
-                    </div> */}
                 </div>
             </div>
         </StandardPage>
