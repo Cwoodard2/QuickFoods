@@ -12,7 +12,7 @@ export default function Homepage() {
     const [mainRecipe1, setRecipe1] = useState();
     const [mainRecipe2, setRecipe2] = useState();
     const [currentDay, setCurrentDay] = useState("Monday");
-    const [plannedMeals, setPlannedMeals] = useState({});
+    const [plannedMeals, setPlannedMeals] = useState({Breakfast: [false, {}], Lunch: [false, {}], Dinner: [false, {}]});
     var date = new Date();
     var currentTime = date.getHours();
     var mealSuggestions;
@@ -41,7 +41,7 @@ export default function Homepage() {
                 console.log(data);
                 var monday = data.Monday;
                 console.log(monday);
-                console.log(monday.Breakfast[1]);
+                console.log(monday["Breakfast"][1]);
                 setPlannedMeals(monday);
                 switch(mealSuggestions) {
                     case "Breakfast":
@@ -116,10 +116,13 @@ export default function Homepage() {
         checkForDoc();
     }, []);
 
-    var planBreakfast = plannedMeals.Breakfast;
-    var planLunch = plannedMeals.Lunch;
-    var planDinner = plannedMeals.Dinner;
-console.log(plannedMeals);
+    var planBreakfast = plannedMeals["Breakfast"];
+    var planLunch = plannedMeals["Lunch"];
+    var planDinner = plannedMeals["Dinner"];
+// console.log(plannedMeals["Breakfast"][1].Name);
+console.log(planBreakfast);
+console.log(planLunch);
+console.log(planDinner);
     return (
         <StandardPage>
             <Navigation />
@@ -129,9 +132,13 @@ console.log(plannedMeals);
                 </div>
                 <div className="row">
                     <div>
-                        <div>
+                        <div className="homepage-day">
                             Plan for the day
-                            {/* <RecipeCardCompact recipe={planBreakfast.Name} prepTime={planBreakfast.PrepTime} cook={planBreakfast.CookTime} content={planBreakfast.Description} instructions={planBreakfast.Cook} prep={planBreakfast.Prep} attributes={planBreakfast.Attributes}/> */}
+                            <RecipeCardCompact recipe={plannedMeals["Breakfast"][1].Name} prepTime={plannedMeals["Breakfast"][1].PrepTime} cook={plannedMeals["Breakfast"][1].CookTime} content={plannedMeals["Breakfast"][1].Description} instructions={plannedMeals["Breakfast"][1].Cook} prep={plannedMeals["Breakfast"][1].Prep} attributes={plannedMeals["Breakfast"][1].Attributes}/>
+                            <br></br>
+                            <RecipeCardCompact recipe={plannedMeals["Lunch"][1].Name} prepTime={plannedMeals["Lunch"][1].PrepTime} cook={plannedMeals["Lunch"][1].CookTime} content={plannedMeals["Lunch"][1].Description} instructions={plannedMeals["Lunch"][1].Cook} prep={plannedMeals["Lunch"][1].Prep} attributes={plannedMeals["Lunch"][1].Attributes}/>
+                            <br></br>
+                            <RecipeCardCompact recipe={plannedMeals["Dinner"][1].Name} prepTime={plannedMeals["Dinner"][1].PrepTime} cook={plannedMeals["Dinner"][1].CookTime} content={plannedMeals["Dinner"][1].Description} instructions={plannedMeals["Dinner"][1].Cook} prep={plannedMeals["Dinner"][1].Prep} attributes={plannedMeals["Dinner"][1].Attributes}/>
                         </div>
                     </div>
                     <div className="recipe-cards">
