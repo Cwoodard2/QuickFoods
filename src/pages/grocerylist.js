@@ -12,6 +12,7 @@ export default function GroceryList() {
             <div>
                 <h1>Olivia's Grocery List</h1>
                 <div className="grocery-list-main">
+                    <div className="grocery-list-main">
                     <div className="grocery-list">
                         <GroceryListCat whichCat="Dairy" />
                     </div>
@@ -33,6 +34,12 @@ export default function GroceryList() {
                     <div className="grocery-list">
                         <GroceryListCat whichCat="Random" />
                     </div>
+                    </div>
+                    <div>
+                    <div className="grocery-list">
+                        <GroceryListCat whichCat="Random" />
+                    </div>
+                </div>
                 </div>
             </div>
         </StandardPage>

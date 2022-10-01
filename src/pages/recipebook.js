@@ -43,9 +43,15 @@ export default function RecipeBook(props) {
             return allRecipes;
         };
 
-        const filterList = (filterCriteria) => {
+        const filterList = (filterCriteria, mealOrSearch) => {
             console.log(filterCriteria);
-            const filterRecipes = recipes.filter((recipe) => recipe.Meal == filterCriteria);
+            let filterRecipes =[];
+            if (mealOrSearch == "meal") {
+                filterRecipes = recipes.filter((recipe) => recipe.Meal == filterCriteria);
+                // filterRecipes = recipes.filter((recipe) => "Hello" == "Hello");
+            } else {
+                filterRecipes = recipes.filter((recipe) => recipe.Name.toLowerCase() == filterCriteria.toLowerCase());
+            }
             const allRecipes = filterRecipes.map((recipes) => <li className="recipe-list"><RecipeCard meal={recipes.Meal} recipe={recipes.Name} prepTime={recipes.PrepTime} cook={recipes.CookTime} content={recipes.Description} instructions={recipes.Cook} prep={recipes.Prep} attributes={recipes.Attributes}/></li>);
             console.log(allRecipes);
             setFinalRecipes(allRecipes);
@@ -63,11 +69,15 @@ export default function RecipeBook(props) {
                 <div className="row" style={{gap: "2vw", alignItems: "center"}}>
                     <h1 className="title">Olivia's Recipe Book</h1>
                     <button onClick={()=>{setCreate(true); setLoadRecipes(true);}} className="add-button">&#43;</button>
-                    <div className="row" style={{padding: "0.5vw", border: "solid 2px", borderRadius: "12px"}}>
+                    <div className="row" style={{padding: "0.5vw", border: "solid 2px", borderRadius: "16px"}}>
                         Filter: 
-                        <button onClick={() => filterList("Breakfast")}>Breakfast</button>
-                        <button onClick={() => filterList("Lunch")}>Lunch</button>
-                        <button onClick={() => filterList("Dinner")}>Dinner</button>
+                        <button onClick={() => filterList("Breakfast", "meal")}>Breakfast</button>
+                        <button onClick={() => filterList("Lunch", "meal")}>Lunch</button>
+                        <button onClick={() => filterList("Dinner", "meal")}>Dinner</button>
+                    </div>
+                    <div style={{position: "relative"}}>
+                        <input id="recipe-search" type="text" placeholder="Search For Recipes" className="searchbar"></input>
+                        <button onClick={() => filterList(document.getElementById("recipe-search").value)} className="searchbar-button">Search</button>
                     </div>
                 </div>
                 <CreateRecipeModal title={props.recipe} content={props.content} onClose={() => setCreate(false)} recipeLoad={() => setLoadRecipes(false)} show={showCreateModal}/>
@@ -75,7 +85,7 @@ export default function RecipeBook(props) {
                     <div className="column">
                         <h1 className="subtitle">All Recipes</h1>
                             <ul className="row" style={{gap: "0vw", paddingLeft: "2vw", paddingRight: "2vw", paddingTop: "1vw", paddingBottom: "2vw", justifyContent: "space-evenly", flexWrap: "wrap"}}>
-                                {recipeIntermediate}
+                                {finalRecipes}
                             </ul>
                     </div>
                 </div>

@@ -8,8 +8,8 @@ export default function Navigation() {
         <div className="navigation">
             <Link to="/homepage">
                 <img src={Logo} style={{width: "5vw", height: "5vw", alignSelf: "flex-start", justifySelf: "flex-start"}}/>
-                </Link>
-            <div style={{display: "flex", gap: "2vw", padding: "1vw", width: "inherit", display: "flex", justifyContent: "flex-end", alignItems: "center"}}>
+            </Link>
+            <div style={{display: "flex", gap: "2vw", padding: "1vw", width: "inherit", display: "flex", justifyContent: "flex-start", alignItems: "center"}}>
                 <Link to="/homepage">
                     <button className="nav-button">Home</button>
                 </Link>
