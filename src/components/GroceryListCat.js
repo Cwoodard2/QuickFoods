@@ -73,8 +73,8 @@ export default function GroceryListCat(props) {
 
     return(
         <div>
-            <div className="row" style={{gap: "2vw", alignItems: "center"}}>
-                <u><h2 style={{color: "#2568FB"}} className="category-title">{category}</h2></u>
+            <h2 style={{color: "#2568FB"}} className="category-title">{category}</h2>
+            <div className="row" style={{gap: "2vw", alignItems: "center", justifyContent: "center"}}>
                 <input id={thisId} type="text" 
                 placeholder="Add an item" className="add-item-input"></input>
                 <button onClick={() => addItem()} className="add-item-button">Add Item</button>

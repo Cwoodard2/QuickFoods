@@ -23,6 +23,9 @@ export default function Navigation() {
                     <button className="nav-button">Calender</button>
                 </Link>
             </div>
+            <Link to="/homepage">
+                <img src={Logo} style={{width: "5vw", height: "5vw", alignSelf: "flex-end", justifySelf: "flex-end"}}/>
+            </Link>
         </div>
     );
 }
