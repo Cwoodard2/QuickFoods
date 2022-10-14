@@ -7,6 +7,7 @@ import "./GroceryListCat.scss";
 
 export default function GroceryListCat(props) {
     var category = props.whichCat;
+    var emptyList = false;
     const [items, setValue] = useState([]);
     const {currentUser} = useAuth();
 
@@ -69,16 +70,21 @@ export default function GroceryListCat(props) {
 
     var thisId = "addBox"+category;
 
+    if (items.length == 0) {
+        emptyList = true;
+    }
+
     const categoryItems = items.map((items) => <li key={items} className="grocery-list-item"><button onClick={() => removeItems(items)} className="remove-item-button"><b>&times;</b></button>{items}</li>)
 
     return(
         <div>
-            <h2 style={{color: "#2568FB"}} className="category-title">{category}</h2>
             <div className="row" style={{gap: "2vw", alignItems: "center", justifyContent: "center"}}>
+                <h2 style={{color: "black"}} className="category-title">{category}</h2>
                 <input id={thisId} type="text" 
                 placeholder="Add an item" className="add-item-input"></input>
                 <button onClick={() => addItem()} className="add-item-button">Add Item</button>
             </div>
+            {emptyList && <p>Your list is empty</p>}
             <ul style={{display: "flex", flexDirection: "column", gap: "1vw", borderLeft: "solid 5px", borderTopLeftRadius: "6px", borderBottomLeftRadius: "6px", overflow: "hidden"}}>{categoryItems}</ul>
         </div>
     );

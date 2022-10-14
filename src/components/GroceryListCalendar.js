@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { db } from '../firebase';
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { useAuth } from "../database/authContext";
+import "./GroceryListCalendar.scss";
 
 export default function GroceryListCalendar(props) {
     const [grocerylist, setGroceryList] = useState([]);
@@ -20,8 +21,9 @@ export default function GroceryListCalendar(props) {
     }, []);
 
     return (
-        <div className="grocery-list">
-            <h2>Breakfast</h2>
+        <div className="grocery-list-1">
+            <h2>{props.meal}</h2>
+            <h4>Recipe Name</h4>
             {grocerylist.map(attribute => <li><button>X</button>{attribute}</li>)}
         </div>
     )

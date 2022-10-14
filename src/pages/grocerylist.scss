@@ -11,10 +11,17 @@
     // align-items: center;
 }
 
+.divider-line {
+    border-radius: 6px;
+    width: 10vw;
+    height: 0.5vw;
+    background-color: black;
+}
+
 .grocery-list {
     display: flex;
     flex-direction: column;
-    width: 28vw;
+    width: 60vw;
     // gap: 2vw;
     // height: 70vh;
     border-radius: 12px;

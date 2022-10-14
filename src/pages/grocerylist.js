@@ -39,6 +39,10 @@ export default function GroceryList() {
                     </div>
                 </div>
                 <div className="calendar-grocery-list">
+                    <GroceryListCalendar day="Monday" meal="Breakfast"/>
+                    <div className="divider-line"></div>
+                    <GroceryListCalendar day="Monday" meal="Lunch"/>
+                    <div className="divider-line"></div>
                     <GroceryListCalendar day="Monday" meal="Dinner"/>
                 </div>
                 </div>
