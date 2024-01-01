@@ -16,12 +16,18 @@
     }
 }
 
+.food-image {
+    width: 15vw;
+    height: 15vw;
+    border-radius: 6px;
+}
+
 .remove-recipe-button {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: #FECD45;
-    color: #2568FB;
+    background-color: #8E2DE2;
+    color: white;
     border-radius: 50%;
     border: none;
     width: auto;
@@ -49,9 +55,9 @@
 .show-details-button {
     border: none;
     border-radius: 12px;
-    background-color: #FECD45;
+    background-color: #7826E7;
     // color: #2568FB;
-    color: #1592d0;
+    color: white;
     font-size: 15px;
     cursor: pointer;
     width: auto;

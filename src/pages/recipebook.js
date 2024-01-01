@@ -80,6 +80,7 @@ export default function RecipeBook(props) {
                         <button onClick={() => filterList(document.getElementById("recipe-search").value)} className="searchbar-button">Search</button>
                     </div>
                 </div>
+                <div className="divider-line"></div>
                 <CreateRecipeModal title={props.recipe} content={props.content} onClose={() => setCreate(false)} recipeLoad={() => setLoadRecipes(false)} show={showCreateModal}/>
                 <div className="column" style={{overflowY: "auto", gap: "3vw"}}>
                     <div className="column">

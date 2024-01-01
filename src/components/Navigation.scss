@@ -11,7 +11,9 @@
     gap: 2vw;
     width: 100vw;
     height: 10vh;
-    background-color: rgba(229, 196, 88, 0.8);
+    // background-color: rgba(229, 196, 88, 0.8);
+    // background-color: rgba(255, 255, 255, 0.8);
+    background-color: #1d212a;
     box-shadow: 0px 0px 5px 0px grey;
     backdrop-filter: blur(10px);
     z-index: 2;
@@ -27,7 +29,7 @@
     cursor: pointer;
     transition: all 0.5s;
     border-radius: 6px;
-    color: #2568FB;
+    color: white;
     &:hover {
         // background-color: #FECD45;
         box-shadow: 0px 0px 5px 0px grey;

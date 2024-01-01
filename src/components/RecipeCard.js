@@ -29,12 +29,13 @@ export default function RecipeCard(props) {
         <div className="recipe-card-main">
             <Modal title={props.recipe} description={props.content} prepTime={props.prepTime} prep={props.prep} instructions={props.instructions} cookTime={props.cook} attributes={props.attributes} onClose={() => setView(false)} show={showModal}/>
             <button className="remove-recipe-button" onClick={() => removeRecipe()}>X</button>
-            <h2 className="recipe-name">Space For Picture!</h2>
+            {/* <h2 className="recipe-name">Space For Picture!</h2> */}
+            <img src="https://th.bing.com/th/id/R.f77fc21b9015cf3b864ed7e0cdcc5e5f?rik=sI3mhsbW6cpRcQ&riu=http%3a%2f%2fweknowyourdreams.com%2fimages%2ftoast%2ftoast-03.jpg&ehk=mK71yjIHffDl2BcbNd7G7u6XSf6F4XDKcjIzXeUkUkQ%3d&risl=&pid=ImgRaw&r=0" className="food-image"/>
             <div className="recipe-card-content">
                 <div>
                     <h3 className="recipe-name">{props.recipe}</h3>
                     {/* style={{border: "solid black 2px", borderRadius: "6px", padding: "0.25vw", borderColor: "yellow", backgroundColor: "beige", width: "8vw"}} */}
-                    <ul>{attributeArray}</ul>
+                    {/* <ul>{attributeArray}</ul> */}
                 </div>
                 <div>
                     <p className="recipe-times">Prep: {props.prepTime}<br></br><br></br>Cook: {props.cook}</p>
