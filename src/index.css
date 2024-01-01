@@ -10,8 +10,9 @@ body {
 @font-face {
   font-family: "MangabeyRegular";
   src: local("MangabeyRegular"), url("./fonts/MangabeyRegular-rgqVO.otf") format("opentype");
-  font-weight: bold;
 }
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
